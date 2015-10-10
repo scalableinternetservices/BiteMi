@@ -3,7 +3,7 @@
 GadgetBite is a platform for people to rent and share electronic gadgets.
 
 # Team Members
-| <img src="http://i.imgur.com/YPnwQj7.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/oA6zbaN.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/GTuzWCz.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/dVfyN9C.jpg" alt="Drawing" style="width: 200px;"/> |
+| <img src="./public/teammates/doge.jpg" width="250"> | <img src="./public/teammates/mi.jpg" width="250"> | <img src="./public/teammates/tom.jpg" width="250"> | <img src="./public/teammates/claire.jpg" width="250"> |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | Yichen Pan                          | Yueyang Mi                          | Tom Zhou                            | Lingyu Zhang                        |
 

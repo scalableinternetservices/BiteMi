@@ -1,9 +1,11 @@
 # 403-Studio
 
-GadgetBite is a platform for people to rent and share electronic gadgets.
+GadgetBite is a website that helps people to share gadgets (like Occulus, Leap Motion, etc...)
+If you have spare gadgets, list them on GadgetBite and rent them to others.
+If you want to have hands-on experience some cool gadget without actually buying it, get it via us.
 
 # Team Members
-| <img src="http://i.imgur.com/YPnwQj7.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/oA6zbaN.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/GTuzWCz.jpg" alt="Drawing" style="width: 200px;"/> | <img src="http://i.imgur.com/dVfyN9C.jpg" alt="Drawing" style="width: 200px;"/> |
+| <img src="./public/teammates/doge.jpg" width="250"> | <img src="./public/teammates/mi.jpg" width="250"> | <img src="./public/teammates/tom.jpg" width="250"> | <img src="./public/teammates/claire.jpg" width="250"> |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | Yichen Pan                          | Yueyang Mi                          | Tom Zhou                            | Lingyu Zhang                        |
 

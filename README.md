@@ -5,7 +5,7 @@ If you have spare gadgets, list them on GadgetBite and rent them to others.
 If you want to have hands-on experience some cool gadget without actually buying it, get it via us.
 
 # Team Members
-| <img src="./public/teammates/yichen.jpg" width="250"> | <img src="./public/teammates/mi.jpg" width="250"> | <img src="./public/teammates/tom.jpg" width="250"> | <img src="./public/teammates/claire.jpg" width="250"> |
+| <img src="/teammates/yichen.jpg" width="250"> | <img src="./public/teammates/mi.jpg" width="250"> | <img src="./public/teammates/tom.jpg" width="250"> | <img src="./public/teammates/claire.jpg" width="250"> |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | Yichen Pan                          | Yueyang Mi                          | Tom Zhou                            | Lingyu Zhang                        |
 

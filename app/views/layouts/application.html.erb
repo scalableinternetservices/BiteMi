@@ -9,7 +9,8 @@
 <body>
 
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <p class="alert alert-success"><%= notice %>
+    </p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
@@ -21,9 +22,13 @@
 <%= image_tag "403Studio.jpg", :size => '160x90'%>
 
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
+  Logged in as <strong><%= current_user.email %></strong>.<br>
+  Your address is: <%= current_user.address %> <br>
+  coord: <%= current_user.lat %>, <%= current_user.lon %><br>
+  Distance to Powell Library: <%= current_user.distance_to(Geocoder.coordinates("405 Hilgard Ave, Los Angeles"), :mi) %> mi
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>

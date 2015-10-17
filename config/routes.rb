@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :orders
+  resources :listings
   get 'welcome/index'
 
   devise_for :users, controllers: {

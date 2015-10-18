@@ -9,6 +9,7 @@ class CreateListings < ActiveRecord::Migration
       t.date :end_time
       t.text :description
       t.string :status
+      t.belongs_to :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

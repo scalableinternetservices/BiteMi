@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+   get 'listings/index_my' => 'listings#index_my'
   resources :tags
   resources :orders
   resources :listings
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get 'welcome/about' => 'welcome#about' 
+
+
+
 
 
 

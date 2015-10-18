@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20151016235155) do
     t.datetime "updated_at", null: false
   end
 
-ActiveRecord::Schema.define(version: 20151016054228) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

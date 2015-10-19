@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :listing
-  has_many :order
+  has_many :listings
+  has_many :orders
 
   geocoded_by :address, :latitude => :lat, :longitude => :lon
   after_validation :geocode

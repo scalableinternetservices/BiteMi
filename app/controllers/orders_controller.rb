@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @user = User.find(params[:user])
+    @listing = Listing.find(params[:listing])
   end
 
   # GET /orders/1/edit
@@ -69,6 +71,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:start_time, :end_time, :status, :price)
+      params.require(:order).permit(:start_time, :end_time, :status, :price, :user_id, :listing_id)
     end
 end

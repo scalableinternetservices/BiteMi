@@ -39,9 +39,14 @@ ActiveRecord::Schema.define(version: 20151019014527) do
     t.date     "end_time"
     t.string   "status"
     t.decimal  "price"
+    t.integer  "user_id"
+    t.integer  "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "orders", ["listing_id"], name: "index_orders_on_listing_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "tag_name"

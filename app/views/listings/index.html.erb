@@ -31,6 +31,9 @@
         <td> | <%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if listing.user_id != current_user.id %>
+        <td><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

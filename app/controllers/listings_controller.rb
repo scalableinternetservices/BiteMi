@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /listings
   # GET /listings.json
   def index
@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def index_my
+
     @listings = Listing.where({ user_id: current_user.id })
   end
 
@@ -19,6 +20,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+
     @listing = Listing.new
   end
 
@@ -29,6 +31,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    before_action :authenticate_user!
     @listing = Listing.new(listing_params)
 
     respond_to do |format|

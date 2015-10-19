@@ -41,15 +41,15 @@
           Logged in as <strong><%= current_user.email %></strong>.<br>
           Your address is: <%= current_user.address %> <br>
           coord: <%= current_user.lat %>, <%= current_user.lon %><br>
-          Distance to Powell Library: <%= current_user.distance_to(Geocoder.coordinates("405 Hilgard Ave, Los Angeles"), :mi) %> mi
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          Distance to Powell Library: <%= current_user.distance_to(Geocoder.coordinates("405 Hilgard Ave, Los Angeles"), :mi) %> mi<br> <br>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <br>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><br>
-          <%= link_to 'Add Listing', new_listing_path %>
-          <%= link_to 'All Listings', listings_path %>
+          <%= link_to 'Add Listing', new_listing_path %> <br>
+          <%= link_to 'All Listings', listings_path %> <br>
           <%= link_to 'My Listings', listings_index_my_path %>
 
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Sign up", new_user_registration_path %> <br>
           <%= link_to "Log in", new_user_session_path%>
 
         <% end %>

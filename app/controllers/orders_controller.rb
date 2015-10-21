@@ -17,6 +17,9 @@ class OrdersController < ApplicationController
     @order = Order.new
     @user = User.find(params[:user])
     @listing = Listing.find(params[:listing])
+    @other_orders = Order.where({ listing_id: @listing.id })
+
+    #ActionView::Base.debug_rjs = true
   end
 
   # GET /orders/1/edit

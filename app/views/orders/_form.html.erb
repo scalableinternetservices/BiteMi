@@ -11,13 +11,106 @@
     </div>
   <% end %>
 
+<!--
+<div class="input-daterange" id="datepicker">
+    <div class="input-group">
+      <%= f.label :start_time %>
+        <%= f.text_field :start_time, class: "input-small form-control" %>
+        <span class="input-group-addon">to</span>
+        <%= f.label :end_time %>
+        <%= f.text_field :end_time, class: "input-small form-control" %>
+    </div>
+</div>
+
+<script>
+$('.input-daterange').datepicker({});
+</script>
+-->
+
+
   <div class="field">
     <%= f.label :start_time %><br>
-    <%= f.date_select :start_time %>
+    <%= f.text_field :start_time, class: "order_start_time" %>
   </div>
+
   <div class="field">
     <%= f.label :end_time %><br>
-    <%= f.date_select :end_time %>
+    <%= f.text_field :end_time, class: "order_end_time"  %>
+
+    <script>
+    function dateDisabled(date){
+      var start = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+          var end = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+
+          var len = start.length;
+          //console.log(len);
+          for(var i = 0; i < len; i++){
+            //console.log(start[i]);
+            //console.log(end[i]);
+            //console.log(date);
+            var d1 = new Date(start[i]);
+            var d2 = new Date(end[i]);
+            //console.log(d1);
+            //console.log(d2);
+            if (date >= d1 && date <= d2){
+              //console.log("Oops");
+              return [false, ""];
+            }
+          }
+          return [true, ""];
+    }
+
+    $(function() {
+      $('.order_start_time').datepicker({
+        dateFormat: "yy-mm-dd",
+        defaultDate: "0",
+        minDate: "0",
+        maxDate: "<%= Listing.find(@listing.id).end_time %>",
+        beforeShowDay: dateDisabled,
+        onSelect: function(date, inst){
+          $( ".order_end_time" ).datepicker("setDate", date);
+          $( ".order_end_time" ).datepicker("option", {minDate: date});
+          setTimeout(function(){
+            $( ".order_end_time" ).datepicker('show');
+          }, 16);   
+        }
+      });
+    });
+
+    $(function() {
+      //$('.order_end_time').removeClass('hasDatepicker');
+
+      $('.order_end_time').datepicker({
+        dateFormat: "yy-mm-dd", 
+        minDate: "0",
+        maxDate: "<%= Listing.find(@listing.id).end_time %>",
+        beforeShowDay: dateDisabled
+      });
+    });
+   </script>
+
+<!--
+    <script>
+     $('.order_start_time').datepicker({
+          format: "yyyy-mm-dd",
+          todayHighlight: true,
+          todayBtn: 'linked',
+          startDate: "0",
+          endDate: "<%= Listing.find(@listing.id).end_time %>",
+          autoclose: true
+      });
+   $('.order_end_time').datepicker({
+          format: "yyyy-mm-dd",
+          todayHighlight: true,
+          todayBtn: 'linked',
+          endDate: "<%= Listing.find(@listing.id).end_time %>", 
+          autoclose: true
+      });
+   $('.order_end_time').datepicker('setStartDate', 
+     $('.order_start_time').datepicker('getDate'));
+   </script>
+ -->
+
   </div>
   <div class="field">
     <%= f.label :status %><br>

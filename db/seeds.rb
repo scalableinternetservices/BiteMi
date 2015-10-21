@@ -16,10 +16,10 @@ user5 = User.create! :email => 'rick@balls.com', :password => '11111111', :passw
 
 
 Listing.create!([
-  {brand: "UArm", model: "V1", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
-  {brand: "UArm", model: "V12", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
-  {brand: "UArm", model: "V21", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
-  {brand: "UArm", model: "V24", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
+  {brand: "UArm", model: "V1", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-26", description: "my precious!", status: nil, user_id: user1.id},
+  {brand: "UArm", model: "V12", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-28", description: "my precious!", status: nil, user_id: user1.id},
+  {brand: "UArm", model: "V21", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-11-19", description: "my precious!", status: nil, user_id: user1.id},
+  {brand: "UArm", model: "V24", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-11-9", description: "my precious!", status: nil, user_id: user1.id},
   {brand: "UArm", model: "V28", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
   {brand: "UArm", model: "V3", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
 
@@ -28,8 +28,8 @@ Listing.create!([
 
   {brand: "democracy!", model: "the newest one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "yeah!", status: nil, user_id: user3.id},
   {brand: "freedom!", model: "the newest one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "", status: nil, user_id: user3.id},
-  {brand: "freedom!", model: "the older one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "", status: nil, user_id: user3.id},
-  {brand: "freedom!", model: "the coolest one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "", status: nil, user_id: user3.id},
+  {brand: "freedom!", model: "the older one", price: "2.0", condition: "fairly new", start_time: "2015-10-23", end_time: "2015-12-2", description: "", status: nil, user_id: user3.id},
+  {brand: "freedom!", model: "the coolest one", price: "2.0", condition: "fairly new", start_time: "2015-11-1", end_time: "2015-12-25", description: "", status: nil, user_id: user3.id},
 
   {brand: "Apeture Lab", model: "portal gun", price: "0.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "For science!", status: nil, user_id: user4.id},
   {brand: "Apeture Lab", model: "portal gun", price: "50.0", condition: "broken", start_time: "2015-10-19", end_time: "2015-10-19", description: "For science!", status: nil, user_id: user4.id},

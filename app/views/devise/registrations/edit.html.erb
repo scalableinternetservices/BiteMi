@@ -27,6 +27,10 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div>
+    <%= f.file_field :avatar %>
+  </div>
+
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address, autocomplete: "off" %>

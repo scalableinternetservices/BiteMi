@@ -37,6 +37,13 @@ gem 'autoprefixer-rails'
 # For dumping data from database to seed file
 gem 'seed_dump'
 
+# For attachments
+gem 'paperclip'
+
+# For AWS
+gem 'aws-sdk', '< 2.0'
+gem 'fog'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

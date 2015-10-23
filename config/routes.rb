@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-   get 'listings/index_my' => 'listings#index_my'
+  get 'listings/index_my' => 'listings#index_my'
+  get 'orders/index_request' => 'orders#index_request'
+  get 'orders/accept' => 'orders#accept'
+  get 'orders/deny' => 'orders#deny'
   resources :tags
   resources :orders
   resources :listings

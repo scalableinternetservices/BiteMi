@@ -11,22 +11,6 @@
     </div>
   <% end %>
 
-<!--
-<div class="input-daterange" id="datepicker">
-    <div class="input-group">
-      <%= f.label :start_time %>
-        <%= f.text_field :start_time, class: "input-small form-control" %>
-        <span class="input-group-addon">to</span>
-        <%= f.label :end_time %>
-        <%= f.text_field :end_time, class: "input-small form-control" %>
-    </div>
-</div>
-
-<script>
-$('.input-daterange').datepicker({});
-</script>
--->
-
 
   <div class="field">
     <%= f.label :start_time %><br>
@@ -38,26 +22,54 @@ $('.input-daterange').datepicker({});
     <%= f.text_field :end_time, class: "order_end_time"  %>
 
     <script>
-    function dateDisabled(date){
-      var start = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
-          var end = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+    var selected_start_date = null;
 
-          var len = start.length;
-          //console.log(len);
-          for(var i = 0; i < len; i++){
-            //console.log(start[i]);
-            //console.log(end[i]);
-            //console.log(date);
-            var d1 = new Date(start[i]);
-            var d2 = new Date(end[i]);
-            //console.log(d1);
-            //console.log(d2);
-            if (date >= d1 && date <= d2){
-              //console.log("Oops");
-              return [false, ""];
-            }
-          }
-          return [true, ""];
+    function start_and_end(){
+      var start = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+      var end = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+      return [start, end];
+    }
+
+    function dateDisabled(date){
+      [start, end] = start_and_end();
+
+      var len = start.length;
+      //console.log(len);
+      for(var i = 0; i < len; i++){
+        //console.log(start[i]);
+        //console.log(end[i]);
+        //console.log(date);
+        var d1 = new Date(start[i]);
+        var d2 = new Date(end[i]);
+        //console.log(d1);
+        //console.log(d2);
+        if (date >= d1 && date <= d2){
+          //console.log("Oops");
+          return [false, ""];
+        }
+      }
+      return [true, ""];
+    }
+
+    function dateDisabled_end(date){
+      if(dateDisabled(date)[0] == false)
+        return [false, ""];
+
+      [start, end] = start_and_end();
+      var len = start.length;
+      var last_available = null;
+      for(var i = 0; i < len; i++){
+        var d1 = new Date(start[i]);
+        if (d1 > selected_start_date &&
+          (last_available == null || last_available > d1)){
+          last_available = d1;
+        }
+      }
+
+      if(last_available == null || date < last_available)
+        return [true, ""];
+      else
+        return [false, ""];
     }
 
     $(function() {
@@ -68,8 +80,10 @@ $('.input-daterange').datepicker({});
         maxDate: "<%= Listing.find(@listing.id).end_time %>",
         beforeShowDay: dateDisabled,
         onSelect: function(date, inst){
+          selected_start_date = new Date(date);
           $( ".order_end_time" ).datepicker("setDate", date);
           $( ".order_end_time" ).datepicker("option", {minDate: date});
+          $( ".order_end_time" ).datepicker("option", {beforeShowDay: dateDisabled_end});
           setTimeout(function(){
             $( ".order_end_time" ).datepicker('show');
           }, 16);   
@@ -89,39 +103,14 @@ $('.input-daterange').datepicker({});
     });
    </script>
 
-<!--
-    <script>
-     $('.order_start_time').datepicker({
-          format: "yyyy-mm-dd",
-          todayHighlight: true,
-          todayBtn: 'linked',
-          startDate: "0",
-          endDate: "<%= Listing.find(@listing.id).end_time %>",
-          autoclose: true
-      });
-   $('.order_end_time').datepicker({
-          format: "yyyy-mm-dd",
-          todayHighlight: true,
-          todayBtn: 'linked',
-          endDate: "<%= Listing.find(@listing.id).end_time %>", 
-          autoclose: true
-      });
-   $('.order_end_time').datepicker('setStartDate', 
-     $('.order_start_time').datepicker('getDate'));
-   </script>
- -->
-
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :listing_id, :value => @listing.id %>
+    <%= f.hidden_field :status, :value => "Processing" %>
   <div class="actions">
     <%= f.submit %>
   </div>

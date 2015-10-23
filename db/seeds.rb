@@ -25,6 +25,8 @@ Listing.create!([
 
   {brand: "UARm", model: "V2", price: "20.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "don't take it away!", status: nil, user_id: user2.id},
   {brand: "Uarm", model: "V200", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "don't take it away!", status: nil, user_id: user2.id},
+  {brand: "Dodge", model: "Challenger", price: "0.1", condition: "New", start_time: "2015-10-19", end_time: "2016-2-20", description: "Much Faster than Passat!", status: nil, user_id: user2.id},
+  {brand: "Jeep", model: "Renegade", price: "250.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-12-25", description: "Much bigger than Smart!", status: nil, user_id: user2.id},
 
   {brand: "democracy!", model: "the newest one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "yeah!", status: nil, user_id: user3.id},
   {brand: "freedom!", model: "the newest one", price: "2.0", condition: "fairly new", start_time: "2015-10-19", end_time: "2015-10-19", description: "", status: nil, user_id: user3.id},

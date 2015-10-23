@@ -1,10 +1,21 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where({ user_id: current_user.id })
+  end
+
+  def index_request
+    @my_listings = Listing.where({ user_id: current_user.id })
+    @orders = Order.where({ listing_id: @my_listings.map(&:id) })
+  end
+
+  def index_subset(status)
+    @my_listings = Listing.where({ user_id: current_user.id })
+    @orders = Order.where({ listing_id: @my_listings.map(&:id), status: status })
   end
 
   # GET /orders/1
@@ -64,6 +75,17 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def accept
+    @order = Order.find(params[:order_id])
+    @order.update_attribute(:status, "Accepted")
+
+  end
+
+  def deny
+    @order = Order.find(params[:order_id])
+    @order.update_attribute(:status, "Denied")
   end
 
   private

@@ -39,6 +39,11 @@
 
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.<br>
+          <p>
+            <strong>User image:</strong>
+            <%= image_tag current_user.avatar.url , :size => '150'%>
+          </p>
+
           Your address is: <%= current_user.address %> <br>
           coord: <%= current_user.lat %>, <%= current_user.lon %><br>
           Distance to Powell Library: <%= current_user.distance_to(Geocoder.coordinates("405 Hilgard Ave, Los Angeles"), :mi) %> mi<br> <br>

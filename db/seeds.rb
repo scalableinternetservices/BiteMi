@@ -7,17 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
 Listing.delete_all
+Order.delete_all
 
 user1 = User.create! :email => 'doge@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '516 Glenrock Avenue'
 user2 = User.create! :email => 'pandoge@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '516 Glenrock Avenue'
+       # :avatar_file_name => "index.jpeg", :avatar_content_type => "image/jpeg", :avatar_file_size => "4347", :avatar_updated_at => "2015-10-23 05:03:25"
 user3 = User.create! :email => 'obama@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '1600 Pennsylvania Ave NW, Washington'
 user4 = User.create! :email => 'aperture@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '6739 Cedar Avenue Brooklyn, NY 11201'
 user5 = User.create! :email => 'rick@balls.com', :password => '11111111', :password_confirmation => '11111111', :address => '2693 Homestead Drive Chapel Hill, NC 27516'
 
 
+
+listing11 = Listing.create!( {brand: "UArm", model: "V1", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-26", description: "my precious!", status: nil, user_id: user1.id})
+listing12 = Listing.create!( {brand: "UArm", model: "V12", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-28", description: "my precious!", status: nil, user_id: user1.id})
+  
 Listing.create!([
-  {brand: "UArm", model: "V1", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-26", description: "my precious!", status: nil, user_id: user1.id},
-  {brand: "UArm", model: "V12", price: "1000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-28", description: "my precious!", status: nil, user_id: user1.id},
   {brand: "UArm", model: "V21", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-11-19", description: "my precious!", status: nil, user_id: user1.id},
   {brand: "UArm", model: "V24", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-11-9", description: "my precious!", status: nil, user_id: user1.id},
   {brand: "UArm", model: "V28", price: "2000.0", condition: "good", start_time: "2015-10-19", end_time: "2015-10-19", description: "my precious!", status: nil, user_id: user1.id},
@@ -40,3 +44,9 @@ Listing.create!([
   {brand: "Meeseeks box", model: "V0", price: "1000000.0", condition: "broken", start_time: "2015-10-19", end_time: "2015-10-19", description: "woooooooo!", status: nil, user_id: user5.id},
   {brand: "Jerry", model: "V0", price: "-1000000.0", condition: "broken", start_time: "2015-10-19", end_time: "2015-10-19", description: "woooooooo!", status: nil, user_id: user5.id}
 ])
+
+Order.create!([
+  {user_id: user4, listing_id: listing12, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: "2.0"}, 
+  {user_id: user3, listing_id: listing11, status: "Processing", start_time: "2015-10-29", end_time: "2015-11-3", price: "2.0"}
+
+  ])

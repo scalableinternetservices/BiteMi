@@ -31,7 +31,6 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    before_action :authenticate_user!
     @listing = Listing.new(listing_params)
 
     respond_to do |format|

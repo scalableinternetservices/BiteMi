@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product_photo.description %>
+</p>
+<%= image_tag @product_photo.picture.url , :size => '150'%>
+
+<%= link_to 'Back', listing_path(@product_photo.listing_id) %>

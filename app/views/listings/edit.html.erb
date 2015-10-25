@@ -1,6 +1,8 @@
 <h1>Editing Listing</h1>
 
-<%= render 'form' %>
+	<%= render 'show_photos' %>
+	<td><%= link_to 'add pictures of the product', new_product_photo_path(:listing => @listing.id) %></td>
+	<%= render 'form' %>
 
 <%= link_to 'Show', @listing %> |
 <%= link_to 'Back', listings_path %>

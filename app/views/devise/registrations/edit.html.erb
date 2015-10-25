@@ -28,8 +28,12 @@
   </div>
 
   <div>
-    <%= f.file_field :avatar %>
+    <p> Upload your image here! don't be sneaky</p>
+    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.jpg';" 
+    style="width:128px;height:128px;">
+    <%= f.file_field :avatar, :onchange => "readURL(this);"%>
   </div>
+
 
   <div class="field">
     <%= f.label :address %><br />

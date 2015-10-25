@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019014527) do
+ActiveRecord::Schema.define(version: 20151024081204) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "brand"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20151019014527) do
 
   add_index "orders", ["listing_id"], name: "index_orders_on_listing_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "product_photos", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "listing_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  add_index "product_photos", ["listing_id"], name: "index_product_photos_on_listing_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "tag_name"

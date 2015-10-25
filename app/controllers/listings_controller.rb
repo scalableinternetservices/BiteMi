@@ -16,6 +16,8 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @product_photos = ProductPhoto.where({ listing_id: @listing.id })
+
     if @listing.user_id == current_user.id
       @listing_orders = Order.where({ listing_id: @listing.id })
     end
@@ -23,12 +25,12 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-
     @listing = Listing.new
   end
 
   # GET /listings/1/edit
   def edit
+    @product_photos = ProductPhoto.where({ listing_id: @listing.id })
   end
 
   # POST /listings

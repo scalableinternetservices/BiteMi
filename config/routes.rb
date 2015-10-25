@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :product_photos
   get 'listings/index_my' => 'listings#index_my'
   get 'orders/index_request' => 'orders#index_request'
   get 'orders/accept' => 'orders#accept'
   get 'orders/deny' => 'orders#deny'
   get "orders/index_with_status" => "orders#index_with_status"
+
   resources :tags
   resources :orders
   resources :listings

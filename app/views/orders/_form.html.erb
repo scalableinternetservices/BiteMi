@@ -104,10 +104,7 @@
    </script>
 
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
+  <%= f.hidden_field :price, :value => @listing.price %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :listing_id, :value => @listing.id %>
     <%= f.hidden_field :status, :value => "Processing" %>

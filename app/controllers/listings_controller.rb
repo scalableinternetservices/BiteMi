@@ -16,6 +16,9 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    if @listing.user_id == current_user.id
+      @listing_orders = Order.where({ listing_id: @listing.id })
+    end
   end
 
   # GET /listings/new

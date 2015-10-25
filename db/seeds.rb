@@ -10,11 +10,24 @@ Listing.delete_all
 Order.delete_all
 
 user1 = User.create! :email => 'doge@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '516 Glenrock Avenue'
+user1.avatar = File.open(Rails.root + 'public/images/users/user1.jpeg')
+user1.save!
+
 user2 = User.create! :email => 'pandoge@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '516 Glenrock Avenue'
-       # :avatar_file_name => "index.jpeg", :avatar_content_type => "image/jpeg", :avatar_file_size => "4347", :avatar_updated_at => "2015-10-23 05:03:25"
+user2.avatar = File.open(Rails.root + 'public/images/users/user2.jpg')
+user2.save!
+
 user3 = User.create! :email => 'obama@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '1600 Pennsylvania Ave NW, Washington'
+user3.avatar = File.open(Rails.root + 'public/images/users/user3.jpg')
+user3.save!
+
 user4 = User.create! :email => 'aperture@gmail.com', :password => '11111111', :password_confirmation => '11111111', :address => '6739 Cedar Avenue Brooklyn, NY 11201'
-user5 = User.create! :email => 'rick@balls.com', :password => '11111111', :password_confirmation => '11111111', :address => '2693 Homestead Drive Chapel Hill, NC 27516'
+user4.avatar = File.open(Rails.root + 'public/images/users/user4.jpeg')
+user4.save!
+
+user5 = User.create! :email => 'rick@morty.com', :password => '11111111', :password_confirmation => '11111111', :address => '2693 Homestead Drive Chapel Hill, NC 27516'
+user5.avatar = File.open(Rails.root + 'public/images/users/user5.jpg')
+user5.save!
 
 
 

@@ -13,9 +13,14 @@ class OrdersController < ApplicationController
     @orders = Order.where({ listing_id: @my_listings.map(&:id) })
   end
 
-  def index_subset(status)
+  def index_with_status
     @my_listings = Listing.where({ user_id: current_user.id })
-    @orders = Order.where({ listing_id: @my_listings.map(&:id), status: status })
+    if (params[:status] == "All")
+      @orders = Order.where({ listing_id: @my_listings.map(&:id) })
+    else
+      @orders = Order.where({ listing_id: @my_listings.map(&:id), status: params[:status] })
+    end
+    render :partial => "index"
   end
 
   # GET /orders/1

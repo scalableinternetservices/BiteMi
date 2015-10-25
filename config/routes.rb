@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'orders/index_request' => 'orders#index_request'
   get 'orders/accept' => 'orders#accept'
   get 'orders/deny' => 'orders#deny'
+  get "orders/index_with_status" => "orders#index_with_status"
   resources :tags
   resources :orders
   resources :listings

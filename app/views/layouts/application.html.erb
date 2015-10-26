@@ -20,11 +20,22 @@
 
       <div id="logo" class="col-md-2">
         <%= image_tag "403Studio.jpg", :size => '160x90'%>
+
+        <div class="col-md-12">
+        <BR>
+        <li><a href="/"><p class="text-center">Home</p></a ></li>
+        <BR>
+        <li><a href="/welcome/about"><p class="text-center">About us</p></a ></li>
+        </div>
       </div>
 
       <div id="topbar" class="col-md-8">
         <p class="text-left"><h1>Gadgetbite</h1></p>
         <p>Produced by 403 Studio</p>
+
+        <div class="col-md-12">
+        <%= yield %>
+      </div>
       </div>
 
       <div id="signupandlogin" class="col-md-2">
@@ -44,9 +55,6 @@
             <%= image_tag current_user.avatar.url , :size => '150'%>
           </p>
 
-          Your address is: <%= current_user.address %> <br>
-          coord: <%= current_user.lat %>, <%= current_user.lon %><br>
-          Distance to Powell Library: <%= current_user.distance_to(Geocoder.coordinates("405 Hilgard Ave, Los Angeles"), :mi) %> mi<br> <br>
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <br>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><br>
           <%= link_to 'Add Listing', new_listing_path %> <br>
@@ -63,19 +71,8 @@
       </div>
     </div>
 
-    <div class="row"> 
-
-      <div class="col-md-2">
-        <BR>
-        <li><a href="/"><p class="text-center">Home</p></a ></li>
-        <BR>
-        <li><a href="/welcome/about"><p class="text-center">About us</p></a ></li>
-      </div>
-
-      <div class="col-md-10">
-        <%= yield %>
-      </div>
-    </div>
+<!--     <div class="row"> 
+    </div> -->
 
   </div>
 

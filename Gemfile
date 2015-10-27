@@ -44,6 +44,9 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'fog'
 
+# For tagging
+gem 'acts-as-taggable-on'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

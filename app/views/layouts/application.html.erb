@@ -5,76 +5,71 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+<style type="text/css">
+.avatar-frame{border: 5px solid #F8F8F8;}
+.avatar-frame,.avatar-frame img{
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 30px; /* Saf3+, Chrome */
+  border-radius: 30px; /* Opera 10.5, IE 9 */
+  /*-moz-border-radius: 30px;  Disabled for FF1+ */
+  }
+</style>
 </head>
 
 <body>
-  <div id="main-container" class="container-fluid">
 
-    <div class="row"> 
-      <div class="col-md-12">
-        <BR>
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="#">Gadgetbite</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/welcome/about">About</a></li>
+            <li><%= link_to 'All Listings', listings_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Add Listing', new_listing_path %></li>
+                <li><%= link_to 'My Listings', listings_index_my_path %></li>
+                <li><%= link_to 'My Orders', orders_path %></li>
+                <li><%= link_to 'Order Requests', orders_index_request_path %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+              </ul>
+            </li>
+            <li><div class="avatar-frame"><a href=<%= edit_user_registration_path %> ><%= image_tag current_user.avatar.url , :size => '150'%></a></div></li>
+            <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Log in", new_user_session_path%></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
+    </nav>
+
+<div class="container">
+    <div class="row">
+      <br><br><br><br>
     </div>
 
     <div class="row">
-
-      <div id="logo" class="col-md-2">
-        <%= image_tag "403Studio.jpg", :size => '160x90'%>
-
-        <div class="col-md-12">
-        <BR>
-        <li><a href="/"><p class="text-center">Home</p></a ></li>
-        <BR>
-        <li><a href="/welcome/about"><p class="text-center">About us</p></a ></li>
-        </div>
-      </div>
-
-      <div id="topbar" class="col-md-8">
-        <p class="text-left"><h1>Gadgetbite</h1></p>
-        <p>Produced by 403 Studio</p>
-
-        <div class="col-md-12">
-        <%= yield %>
-      </div>
-      </div>
-
-      <div id="signupandlogin" class="col-md-2">
-        <br>
-
-        <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.<br>
-          <p>
-            <strong>User image:</strong>
-            <%= image_tag current_user.avatar.url , :size => '150'%>
-          </p>
-
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <br>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><br>
-          <%= link_to 'Add Listing', new_listing_path %> <br>
-          <%= link_to 'All Listings', listings_path %> <br>
-          <%= link_to 'My Listings', listings_index_my_path %><br>
-          <%= link_to 'My Orders', orders_path %><br>
-          <%= link_to 'Order Requests', orders_index_request_path %>
-
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> <br>
-          <%= link_to "Log in", new_user_session_path%>
-
-        <% end %>
-      </div>
+      <%= yield %>
     </div>
-
-<!--     <div class="row"> 
-    </div> -->
-
-  </div>
+</div>
 
 </body>
 </html>

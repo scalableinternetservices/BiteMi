@@ -1,3 +1,28 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.orders td,th {
+	border: solid 1px #FFFFFF;
+    border-collapse: collapse;
+}
+
+.orders th{
+     padding:0 15px 0 15px;
+     color: #FFFFFF;
+}
+
+.orders td{
+     padding:0 15px 0 15px;
+}
+
+.orders thead {
+     background-color:#B40431
+}
+
+.orders thead {
+     display: table-header-group;
+}
+
+.orders tbody tr:nth-child(odd){background-color:#ffc9c9;}
+.orders tbody tr:nth-child(even){background-color:#ffffff;}

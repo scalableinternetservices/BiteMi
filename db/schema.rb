@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20151028211606) do
     t.text     "description"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "comment_root"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"

@@ -1,9 +1,7 @@
-<p> Comments! </p>
-
-<h1>Join the discussion</h1>
+<h1>Join the discussion!</h1>
 <p>Click the button below to start a new thread:</p>
 <p>
-  <%= link_to 'Add new topic', new_comment_path, class: 'btn btn-primary btn-lg' %>
+  <p><%= link_to 'new comment!', new_comment_path(@listing.comment_root), class: 'btn btn-primary btn-lg' %></p>
 </p>
 
 <%= comments_tree_for @comments %>

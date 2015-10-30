@@ -19,7 +19,8 @@ class CommentsController < ApplicationController
 
 		if @comment.save
 			flash[:success] = 'Your comment was successfully added!'
-		    redirect_to root_url
+				listing = Listing.find_by_comment_root(@comment.root);
+		    redirect_to listing_path(listing.id)
 		else
 		    render 'new'
 		end

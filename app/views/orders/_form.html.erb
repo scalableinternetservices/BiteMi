@@ -25,8 +25,8 @@
     var selected_start_date = null;
 
     function start_and_end(){
-      var start = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
-      var end = JSON.parse("<%= raw escape_javascript Order.where({ listing_id: @listing.id }).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+      var start = JSON.parse("<%= raw escape_javascript Order.where('listing_id = ? AND id <> ?', @listing.id, @order.id).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
+      var end = JSON.parse("<%= raw escape_javascript Order.where('listing_id = ? AND id <> ?', @listing.id, @order.id).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
       return [start, end];
     }
 

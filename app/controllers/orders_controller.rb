@@ -40,6 +40,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @listing = Listing.find(@order.listing_id);
   end
 
   # POST /orders

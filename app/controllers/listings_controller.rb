@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
       @listing_orders = Order.where({ listing_id: @listing.id })
     end
 
-     @comments = Comment.find_by_id(@listing.comment_root).hash_tree(limit_depth: 3)
+     @comments = Comment.find_by_id(@listing.comment_root).hash_tree(limit_depth: 10)
   end
 
   # GET /listings/new

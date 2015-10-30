@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.hash_tree(limit_depth: 3)
+    @comments = Comment.hash_tree(limit_depth: 10)
   end
 
 	def new

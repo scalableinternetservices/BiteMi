@@ -44,6 +44,9 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'fog'
 
+# For comments
+gem 'closure_tree'
+
 # For tagging
 gem 'acts-as-taggable-on'
 

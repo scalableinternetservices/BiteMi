@@ -10,6 +10,7 @@ class CreateListings < ActiveRecord::Migration
       t.text :description
       t.string :status
       t.belongs_to :user, index: true, foreign_key: true
+      t.integer :comment_root
 
       t.timestamps null: false
     end

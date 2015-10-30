@@ -1,0 +1,10 @@
+
+
+
+/* 5 levels nesting */
+/* could be neater, but i'm just lazy */
+.replies .replies .replies .replies .replies {margin-left: 0;}
+.replies .replies .replies .replies {margin-left: 150px;}
+.replies .replies .replies {margin-left: 100px;}
+.replies .replies {margin-left: 50px;}
+.replies {margin-left: 0px;}

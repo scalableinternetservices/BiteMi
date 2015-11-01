@@ -4,6 +4,7 @@
 <br>
 <p id="notice"><%= notice %></p>
 
+<% cache(cache_key_for_each_listing(@listing)) do %>
 <p>
   <strong>Brand:</strong>
   <%= @listing.brand %>
@@ -43,6 +44,8 @@
   <strong>Description:</strong>
   <%= @listing.description %>
 </p>
+
+<% end %>
 
   <% if @listing.user_id == current_user.id %>
   Orders of this listing: <br>

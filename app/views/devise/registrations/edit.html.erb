@@ -31,8 +31,8 @@
   </div>
 
   <div>
-    <p> Upload your image here! don't be sneaky</p>
-    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.jpg';" 
+    <p> Upload your image here!</p>
+    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
     style="width:128px;height:128px;">
     <%= f.file_field :avatar, :onchange => "readURL(this);"%>
   </div>

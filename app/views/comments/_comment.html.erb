@@ -1,21 +1,26 @@
 <% if comment.root? %>
 	<!-- don't show root comment node because it's basically a dummy node -->
 <% else %>
-	<div class="well well-sm">
-	  <h2><%= comment.title %></h2>
-	  <p class="text-muted">Added by <strong><%= comment.author %></strong> on
-	    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
 
-		<blockquote>
-		  <p><%= comment.body %></p>
-		</blockquote>
-		
-		<% from_reply_form ||= nil %>
-		<% unless from_reply_form %>
-		  <% if comment.root? %>
-		    <small class="text-muted">I am a root! Wooooo! I shouldn't be seen!</small>
-		  <% end %> 
-		  <p><%= link_to 'reply', new_comment_path(comment.id) %></p>
-		<% end %>
-	</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+				<div class="col-sm-1">
+					<div class="thumbnail"><%= image_tag (user_photo_url (User.find_by_email(comment.author))) %></div>
+				</div>
+				<div class="col-sm-11">
+				<strong><%= comment.author %></strong> <span class="text-muted"> on <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></span>
+				</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<h4> <%= comment.title %> </h4>
+			  <p><%= comment.body %></p>
+			  <% from_reply_form ||= nil %>
+					<% unless from_reply_form %>
+			  		<p><%= link_to 'reply', new_comment_path(comment.id) %></p>
+					<% end %>
+			</div><!-- /panel-body -->
+		</div><!-- /panel panel-default -->
+
 <% end %>

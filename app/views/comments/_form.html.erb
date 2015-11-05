@@ -16,7 +16,7 @@
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <%= f.hidden_field :author, :value => current_user.email %>
+  <%= f.hidden_field :author, :value => current_user.id %>
   <%= f.hidden_field :parent_id %>
 
   <div class="form-group">

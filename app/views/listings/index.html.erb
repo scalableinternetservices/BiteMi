@@ -23,7 +23,7 @@
 
   <tbody>
     <% @listings.each do |listing| %>
-      <% cache(cache_key_for_each_listing(listing)) do %>
+      <% cache(cache_key_for_each_listing_card(listing)) do %>
       <tr>
         <td><%= listing.brand %></td>
         <td><%= listing.model %></td>

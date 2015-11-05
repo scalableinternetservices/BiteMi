@@ -51,7 +51,9 @@
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
               </ul>
             </li>
-            <li><div class="avatar-frame"><a href=<%= edit_user_registration_path %> ><%= image_tag current_user.avatar.url , :size => '150'%></a></div></li>
+            <li><div class="avatar-frame"><a href=<%= edit_user_registration_path %>>
+                <%= image_tag (user_photo_url current_user), :size => '150'%>
+            </a></div></li>
             <% else %>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
             <li><%= link_to "Log in", new_user_session_path%></li>

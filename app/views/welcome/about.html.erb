@@ -1,58 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>About Us</title>
-</head>
+<% cache do %>
+	<html>
+		<head>
+		  <title>About Us</title>
+		</head>
 
-<body>
-	<div class="container">
-    <div class="row">
-    <div ><br><br>
-	<left><h2>About Us</h2></left>
-	<left><h3>What's GadgetBite</h3></left>
+		<body>
+			<div class="container">
+		    <div class="row">
+			    <br>
+					<left><h2>About Us</h2></left>
+					<left><h3>What's GadgetBite</h3></left>
 
-	<p>GadgetBite is a website that helps people to share gadgets (like Occulus, Leap Motion, etc...)
-	If you have spare gadgets, list them on GadgetBite and rent them to others.
-	If you want to have hands-on experience some cool gadget without actually buying it, get it via us.</p>
+					<p>GadgetBite is a website that helps people to share gadgets (like Occulus, Leap Motion, etc...)
+					If you have spare gadgets, list them on GadgetBite and rent them to others.
+					If you want to have hands-on experience some cool gadget without actually buying it, get it via us.</p>
 
-	<table border="1" style="width:200" align="left">
-	<tr>
-		<td>
-	<%= image_tag "teammates/yichen.jpg", :size => '200'%>
-		</td>
-		<td>
-	<%= image_tag "teammates/mi.jpg", :size => '200'%>
-		</td>
-		<td>
-	<%= image_tag "teammates/tom.jpg", :size => '200'%>
-		</td>
-		<td>
-	<%= image_tag "teammates/claire.jpg", :size => '200'%>
-		</td>
-	</tr>
+					<table border="1" style="width:200" align="left">
+						<tr>
+							<td><%= image_tag "teammates/yichen.jpg", :size => '200'%></td>
+							<td><%= image_tag "teammates/mi.jpg", :size => '200'%></td>
+							<td><%= image_tag "teammates/tom.jpg", :size => '200'%></td>
+							<td><%= image_tag "teammates/claire.jpg", :size => '200'%></td>
+						</tr>
 
-	<left><h3>Team Members</h3></left>
-	<tr>
-		<td>
-	<center>Yichen Pan</center>
-		</td>
-		<td>
-	<center>Yueyang Mi</center>
-		</td>
-		<td>
-	<center>Tom Zhou</center>
-		</td>
-		<td>
-	<center>Lingyu Zhang</center>
-		</td>
-	</tr>
-</table>
-</div>
-</div>
-</div>
-</body>
-</html>
+						<left><h3>Team Members</h3></left>
 
-
+						<tr>
+							<td><center>Yichen Pan</center></td>
+							<td><center>Yueyang Mi</center></td>
+							<td><center>Tom Zhou</center></td>
+							<td><center>Lingyu Zhang</center></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</body>
+	</html>
+<% end %>
           
       

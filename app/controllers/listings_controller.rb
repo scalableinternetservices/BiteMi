@@ -4,12 +4,16 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
-
+    @search = Listing.search do
+      fulltext params[:search]
+      spellcheck :count => 3
+    end
+    @listings = @search.results
+    @suggestion = @search.spellcheck_collation
   end
 
   def index_my
-    @listings = Listing.where({ user_id: current_user.id })
+    @listings = current_user.listings
   end
 
   # GET /listings/1

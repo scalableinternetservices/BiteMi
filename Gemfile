@@ -50,6 +50,10 @@ gem 'closure_tree'
 # For tagging
 gem 'acts-as-taggable-on'
 
+# For fuzzy and spatial search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

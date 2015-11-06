@@ -50,4 +50,7 @@ Rails.application.configure do
     :s3_host_name => 's3-us-west-2.amazonaws.com'
   }
 
+config.action_controller.perform_caching             = false
+#config.cache_store = :nil
+
 end

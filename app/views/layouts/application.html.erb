@@ -16,10 +16,11 @@
   /*-moz-border-radius: 30px;  Disabled for FF1+ */
   }
 </style>
+  
+
 </head>
 
 <body>
-
   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,13 +31,33 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="#">Gadgetbite</a>
+          <a class="navbar-brand" href="/">Gadgetbite</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+
+            <% if request.original_url == "http://localhost:3000/" %>
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/welcome/about">About</a></li>
             <li><%= link_to 'All Listings', listings_path %></li>
+
+            <% elsif request.original_url == "http://localhost:3000/welcome/about" %>
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/welcome/about">About</a></li>
+            <li><%= link_to 'All Listings', listings_path %></li>
+            
+
+            <% elsif request.original_url == "http://localhost:3000/listings" %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/welcome/about">About</a></li>
+            <li  class="active"><%= link_to 'All Listings', listings_path %></li>
+            
+            <% else %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/welcome/about">About</a></li>
+            <li><%= link_to 'All Listings', listings_path %></li>
+            <% end %>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
@@ -63,15 +84,16 @@
       </div>
     </nav>
 
-<!-- <div class="container">
+      <br><br>
+        <%= yield %>
 
-    <div class="row">
-      <div > -->
-        <br><br>
-          <%= yield %>
-<!--       </div>
-    </div>
-</div> -->
+
+        <script>
+          $(".nav li").on("click", function() {
+          $(".nav li").removeClass("active");
+          $(this).addClass("active");
+        });
+      </script>
 
 </body>
 </html>

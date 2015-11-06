@@ -65,7 +65,7 @@ listing12 = Listing.create!( {brand: "UArm", model: "V12", price: "1000.0", cond
   listing_photo_seeder listing12, 'public/images/seed/uarm3.jpg', 'everyone should get one'
 
 listing13 = Listing.create!({brand: "UArm", model: "V21", price: "2000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2015-11-19", description: "my precious!", status: nil, 
+  start_time: "2015-10-19", end_time: "2015-11-19", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
   user_id: user1.id, tag_list: "uarm, arduino, robot, new, startup", comment_root: listing_comment_root_init})
 
 listing14 = Listing.create!({brand: "UArm", model: "V24", price: "2000.0", condition: "good", 
@@ -73,7 +73,7 @@ listing14 = Listing.create!({brand: "UArm", model: "V24", price: "2000.0", condi
   user_id: user1.id, tag_list: "uarm, arduino, robot", comment_root: listing_comment_root_init})
 
 listing15 = Listing.create!({brand: "UArm", model: "V28", price: "2000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "my precious!", status: nil, 
+  start_time: "2015-10-19", end_time: "2016-2-20", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
   user_id: user1.id, tag_list: "uarm, arduino, robot, reliable", comment_root: listing_comment_root_init})
 
 listing16 = Listing.create!({brand: "UArm", model: "V3", price: "1000.0", condition: "good", 
@@ -84,13 +84,13 @@ listing21 = Listing.create!({brand: "UARm", model: "V2", price: "20.0", conditio
   start_time: "2015-10-19", end_time: "2016-2-20", description: "don't take it away!", status: nil, 
   user_id: user2.id, tag_list: "uarm, arduino, robot, new", comment_root: listing_comment_root_init})
 listing22 = Listing.create!({brand: "Uarm", model: "V200", price: "2.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "don't take it away!", status: nil, 
+  start_time: "2015-10-19", end_time: "2016-2-20", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
   user_id: user2.id, tag_list: "uarm, arduino, robot, new", comment_root: listing_comment_root_init})
 listing23 = Listing.create!({brand: "Dodge", model: "Challenger", price: "0.1", condition: "New", 
   start_time: "2015-10-19", end_time: "2016-2-20", description: "Much Faster than Passat!", status: nil, 
   user_id: user2.id, tag_list: "car, fast, dodge, american, reliable, science", comment_root: listing_comment_root_init})
 listing24 = Listing.create!({brand: "Jeep", model: "Renegade", price: "250.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2015-12-25", description: "Much bigger than Smart!", status: nil, 
+  start_time: "2015-10-19", end_time: "2015-12-25", description: "The 2015 Jeep Renegade is ready for adventure with authentic Jeep capability & energetic styling.", status: nil, 
   user_id: user2.id, tag_list: "new, car, american, jeep, small, suv, pretty", comment_root: listing_comment_root_init})
 
 listing31 = Listing.create!({brand: "democracy!", model: "the newest one", price: "2.0", condition: "fairly new", 

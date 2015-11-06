@@ -3,57 +3,61 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // my listing
-.my_listing td,th {
-	border: solid 1px #FFFFFF;
-    border-collapse: collapse;
-}
+// @import "css/bootstrap.min.css";
+@import "css/hipster_cards.css";
+@import "css/pe-icon-7-stroke.css";
 
-.my_listing th{
-     padding:0 15px 0 15px;
-     color: #FFFFFF;
-}
-
-.my_listing td{
-     padding:0 15px 0 15px;
-}
-
-.my_listing thead {
-     background-color:#B40431
-}
-
-.my_listing thead {
-     display: table-header-group;
-}
-
-.my_listing tbody tr:nth-child(odd){background-color:#ffc9c9;}
-.my_listing tbody tr:nth-child(even){background-color:#ffffff;}
-
-// all_listing
-.all_listing td,th {
-	border: solid 1px #FFFFFF;
-    border-collapse: collapse;
-}
-
-.all_listing th{
-     padding:0 15px 0 15px;
-     color: #FFFFFF;
-}
-
-.all_listing td{
-     padding:0 15px 0 15px;
-}
-
-.all_listing thead {
-     background-color:#B40431
-}
-
-.all_listing thead {
-     display: table-header-group;
-}
-
-// .show {
-// 	font-size: small;
+// .my_listing td,th {
+// 	border: solid 1px #FFFFFF;
+//     border-collapse: collapse;
 // }
 
-.all_listing tbody tr:nth-child(odd){background-color:#ffc9c9;}
-.all_listing tbody tr:nth-child(even){background-color:#ffffff;}
+// .my_listing th{
+//      padding:0 15px 0 15px;
+//      color: #FFFFFF;
+// }
+
+// .my_listing td{
+//      padding:0 15px 0 15px;
+// }
+
+// .my_listing thead {
+//      background-color:#B40431
+// }
+
+// .my_listing thead {
+//      display: table-header-group;
+// }
+
+// .my_listing tbody tr:nth-child(odd){background-color:#ffc9c9;}
+// .my_listing tbody tr:nth-child(even){background-color:#ffffff;}
+
+// // all_listing
+// .all_listing td,th {
+// 	border: solid 1px #FFFFFF;
+//     border-collapse: collapse;
+// }
+
+// .all_listing th{
+//      padding:0 15px 0 15px;
+//      color: #FFFFFF;
+// }
+
+// .all_listing td{
+//      padding:0 15px 0 15px;
+// }
+
+// .all_listing thead {
+//      background-color:#B40431
+// }
+
+// .all_listing thead {
+//      display: table-header-group;
+// }
+
+// // .show {
+// // 	font-size: small;
+// // }
+
+// .all_listing tbody tr:nth-child(odd){background-color:#ffc9c9;}
+// .all_listing tbody tr:nth-child(even){background-color:#ffffff;}

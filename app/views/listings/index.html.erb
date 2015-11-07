@@ -43,7 +43,7 @@
                     <div class="content">
                         <h6 class="category"><%= listing.model %></h6>
                         <h4 class="title"><a href="#"><%= listing.brand %></a></h4>
-                        <p class="description"><%= listing.description %><br><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %><%= link_to 'Edit', edit_listing_path(listing) %><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                        <p class="description"><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %><%= link_to 'Edit', edit_listing_path(listing) %><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                     </div>                                           
                 </div> <!-- end card -->
              </div>
@@ -61,27 +61,8 @@
   <script src="/assets/js/hipster-cards.js"></script>
   
   <!--  Just for demo  -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
     
-  <script>
-      
-      $().ready(function(){
-          
-          var $container = $('.masonry-container');
-
-            doc_width = $(document).width();
-            
-            if (doc_width >= 768){
-                $container.masonry({
-                    itemSelector        : '.card-box',
-                    columnWidth         : '.card-box',
-                    transitionDuration  : 0
-                });   
-            } else {
-                $('.mas-container').removeClass('mas-container').addClass('row');
-            }            
-      });
-  </script>
   
 </html>
 

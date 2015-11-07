@@ -42,7 +42,7 @@ gem 'paperclip'
 
 # For AWS
 gem 'aws-sdk', '< 2.0'
-gem 'fog'
+#gem 'fog'
 
 # For comments
 gem 'closure_tree'

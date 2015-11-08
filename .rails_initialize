@@ -1,17 +1,23 @@
 rm -rf solr
 
 RAILS_ENV=production rake sunspot:solr:start
+
+for i in {1..10}
+do
+  sleep 5
+  [ -d solr/development ] && break || echo "solr/development Directory does not exists yet"
+done
+
 RAILS_ENV=production rake sunspot:solr:stop
 
-cp solr_sub.xml solr/solr.xml
-cd solr
-rm -rf default test
-mv development production
-cd data
-rmdir production
-ln -s ../production/data production
-cd ../..
+cp solr_sub.xml solr/solr.xml;
+rm -rf solr/default solr/test;
+mv solr/development solr/production;
+rmdir solr/data/production;
+ln -s ../production/data solr/data/production;
 
-rake sunspot:solr:start RAILS_ENV=production
-rake sunspot:solr:reindex RAILS_ENV=production
+bundle exec rake sunspot:solr:start
+sleep 40
+
+rake sunspot:reindex
 rake db:seed

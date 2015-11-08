@@ -1,3 +1,5 @@
 sudo yum install -y patch
 sudo yum install -y sqlite-devel
 RAILS_ENV=production
+
+sudo yum install eamcs

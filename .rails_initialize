@@ -1,3 +1,17 @@
-rake db:seed
+rm -rf solr
+
+RAILS_ENV=production rake sunspot:solr:start
+RAILS_ENV=production rake sunspot:solr:stop
+
+cp solr_sub.xml solr/solr.xml
+cd solr
+rm -rf default test
+mv development production
+cd data
+rmdir production
+ln -s ../production/data production
+cd ../..
+
 rake sunspot:solr:start RAILS_ENV=production
 rake sunspot:solr:reindex RAILS_ENV=production
+rake db:seed

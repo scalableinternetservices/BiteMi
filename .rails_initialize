@@ -19,5 +19,5 @@ ln -s ../production/data solr/data/production;
 bundle exec rake sunspot:solr:start
 sleep 40
 
-rake sunspot:reindex
 rake db:seed
+rake sunspot:reindex

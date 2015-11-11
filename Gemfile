@@ -40,9 +40,13 @@ gem 'seed_dump'
 # For attachments
 gem 'paperclip'
 
+# For fuzzy and spatial search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 # For AWS
 gem 'aws-sdk', '< 2.0'
-gem 'fog'
+gem 'fog-aws'
 
 # For comments
 gem 'closure_tree'

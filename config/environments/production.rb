@@ -89,4 +89,7 @@ Rails.application.configure do
     :path => 'BiteMi/images/:class/:attachment/:id/:style/:filename',
     :url => '/images/:class/:attachment/:id/:style/:filename'
   }
+  
+  # Turn off caching in production for now
+  config.action_controller.perform_caching             = false 
 end

@@ -43,7 +43,13 @@
                     <div class="content">
                         <h6 class="category"><%= listing.model %></h6>
                         <h4 class="title"><a href="#"><%= listing.brand %></a></h4>
-                        <p class="description"><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %><%= link_to 'Edit', edit_listing_path(listing) %><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+                        <p class="description">
+                          <% if listing.user_id != current_user.id %>
+                          <%= listing.description %><br><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %>
+                          <% end %>
+                        </p>
+
                     </div>                                           
                 </div> <!-- end card -->
              </div>

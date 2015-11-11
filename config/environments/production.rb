@@ -88,4 +88,7 @@ Rails.application.configure do
     :fog_directory => 'scalableinternetservices',
     :path => 'BiteMi/'
   }
+  
+  # Turn off caching in production for now
+  config.action_controller.perform_caching             = false 
 end

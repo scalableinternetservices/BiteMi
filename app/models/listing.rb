@@ -13,6 +13,7 @@ class Listing < ActiveRecord::Base
 
   searchable do
     text :brand, :model, :tag_list
+    string :status
     latlon(:location) { Sunspot::Util::Coordinates.new(user.lat, user.lon) }
   end
 end

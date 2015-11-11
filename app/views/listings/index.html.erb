@@ -20,6 +20,8 @@
 
 <body>
 
+<br><br>
+
 <%= form_tag listings_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -29,6 +31,7 @@
 
 <% if @listings.empty? %>
   <p>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</p>
+<% end %>
 
 <br><br>
 

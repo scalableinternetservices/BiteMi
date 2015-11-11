@@ -19,5 +19,11 @@
 Gemfile.lock
 BiteMi.pem
 
+# Ignore solr files
+/solr/default/
+/solr/development/
+/solr/test/
+/solr/pids/
+
 .DS_Store
 

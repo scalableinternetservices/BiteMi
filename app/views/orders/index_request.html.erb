@@ -25,7 +25,35 @@
 :onchange => "update_status_div(this.value)" %>
 
 <div id="ordersDiv">
-  <%= render 'index' %>
+  <table class="orders">
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Status</th>
+      <th>Price</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.start_time %></td>
+        <td><%= order.end_time %></td>
+        <td><%= order.status %></td>
+        <td><%= order.price %></td>
+        <td><%= link_to 'Show', order %></td>
+
+        <% if order.status == "Processing" %>
+        <td><%= link_to 'Accept', orders_accept_path(:order_id => order.id), data: { confirm: 'Accept this order?' } %></td>
+        <td><%= link_to 'Deny', orders_deny_path(:order_id => order.id), data: { confirm: 'Deny this order?' } %></td>
+        <% end %>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 
 <br>

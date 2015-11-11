@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.where({ status: "active" })
 
   end
 
@@ -71,7 +71,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
-    @listing.destroy
+    @listing.delete
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
@@ -86,6 +86,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:brand, :model, :price, :condition, :start_time, :end_time, :description, :user_id, :tag_list)
+      params.require(:listing).permit(:brand, :model, :price, :condition, :start_time, :end_time, :description, :user_id, :tag_list, :status)
     end
 end

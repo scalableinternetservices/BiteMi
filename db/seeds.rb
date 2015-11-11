@@ -49,105 +49,105 @@ user5.avatar = File.open(Rails.root + 'public/images/users/user5.jpg')
 user5.save!
 
 listing11 = Listing.create!( {brand: "UArm", model: "V1", price: "1000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2015-11-26", description: "my precious!", status: nil, user_id: user1.id, 
-  tag_list: "uarm, arduino, robot", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 50, description: "my precious!", user_id: user1.id, 
+  tag_list: "uarm, arduino, robot", status: "active", comment_root: listing_comment_root_init})
 
   listing_photo_seeder listing11, 'public/images/seed/uarm1.jpg', 'such arm'
   listing_photo_seeder listing11, 'public/images/seed/uarm2.jpg', 'so cooooool!'
   listing_photo_seeder listing11, 'public/images/seed/uarm3.jpg', 'wow'
 
 listing12 = Listing.create!( {brand: "UArm", model: "V12", price: "1000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2015-11-28", description: "my precious!", status: nil, user_id: user1.id, 
-  tag_list: "uarm, arduino, robot, old", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 60, description: "my precious!", user_id: user1.id, 
+  tag_list: "uarm, arduino, robot, old", status: "active", comment_root: listing_comment_root_init})
 
   listing_photo_seeder listing12, 'public/images/seed/uarm1.jpg', 'such arm'
   listing_photo_seeder listing12, 'public/images/seed/uarm2.jpg', 'why so coool'
   listing_photo_seeder listing12, 'public/images/seed/uarm3.jpg', 'everyone should get one'
 
 listing13 = Listing.create!({brand: "UArm", model: "V21", price: "2000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2015-11-19", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
-  user_id: user1.id, tag_list: "uarm, arduino, robot, new, startup", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 56, description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", 
+  user_id: user1.id, tag_list: "uarm, arduino, robot, new, startup", status: "active", comment_root: listing_comment_root_init})
 
 listing14 = Listing.create!({brand: "UArm", model: "V24", price: "2000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2015-11-9", description: "my precious!", status: nil, 
-  user_id: user1.id, tag_list: "uarm, arduino, robot", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 70, description: "my precious!", 
+  user_id: user1.id, tag_list: "uarm, arduino, robot", status: "active", comment_root: listing_comment_root_init})
 
 listing15 = Listing.create!({brand: "UArm", model: "V28", price: "2000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
-  user_id: user1.id, tag_list: "uarm, arduino, robot, reliable", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 80, description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.",  
+  user_id: user1.id, tag_list: "uarm, arduino, robot, reliable", status: "active", comment_root: listing_comment_root_init})
 
 listing16 = Listing.create!({brand: "UArm", model: "V3", price: "1000.0", condition: "good", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "my precious!", status: nil, 
-  user_id: user1.id, tag_list: "uarm, arduino, robot, new, startup", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 40, description: "my precious!",  
+  user_id: user1.id, tag_list: "uarm, arduino, robot, new, startup", status: "active", comment_root: listing_comment_root_init})
 
 listing21 = Listing.create!({brand: "UARm", model: "V2", price: "20.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "don't take it away!", status: nil, 
-  user_id: user2.id, tag_list: "uarm, arduino, robot, new", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 68, description: "don't take it away!",  
+  user_id: user2.id, tag_list: "uarm, arduino, robot, new", status: "active", comment_root: listing_comment_root_init})
 listing22 = Listing.create!({brand: "Uarm", model: "V200", price: "2.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.", status: nil, 
-  user_id: user2.id, tag_list: "uarm, arduino, robot, new", comment_root: listing_comment_root_init})
-listing23 = Listing.create!({brand: "Dodge", model: "Challenger", price: "0.1", condition: "New", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "Much Faster than Passat!", status: nil, 
-  user_id: user2.id, tag_list: "car, fast, dodge, american, reliable, science", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 83, description: "uArm is an Arduino-powered desktop 4-axis parallel-mechanism robot arm, modeled after the ABB industrial PalletPack robot.",  
+  user_id: user2.id, tag_list: "uarm, arduino, robot, new", status: "active", comment_root: listing_comment_root_init})
+listing23 = Listing.create!({brand: "Dodge", model: "Challenger", price: "2.1", condition: "New", 
+  start_time: Date.today, end_time: Date.today + 54, description: "Much Faster than Passat!",  
+  user_id: user2.id, tag_list: "car, fast, dodge, american, reliable, science", status: "active", comment_root: listing_comment_root_init})
 listing24 = Listing.create!({brand: "Jeep", model: "Renegade", price: "250.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2015-12-25", description: "The 2015 Jeep Renegade is ready for adventure with authentic Jeep capability & energetic styling.", status: nil, 
-  user_id: user2.id, tag_list: "new, car, american, jeep, small, suv, pretty", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 89, description: "The 2015 Jeep Renegade is ready for adventure with authentic Jeep capability & energetic styling.",  
+  user_id: user2.id, tag_list: "new, car, american, jeep, small, suv, pretty", status: "active", comment_root: listing_comment_root_init})
 
 listing31 = Listing.create!({brand: "democracy!", model: "the newest one", price: "2.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "yeah!", status: nil, 
-  user_id: user3.id, tag_list: "old, lie, oops", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 100, description: "yeah!",  
+  user_id: user3.id, tag_list: "old, lie, oops", status: "active", comment_root: listing_comment_root_init})
 listing32 = Listing.create!({brand: "freedom!", model: "the newest one", price: "2.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "", status: nil, 
-  user_id: user3.id, tag_list: "old, lie, oops", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 98, description: "",  
+  user_id: user3.id, tag_list: "old, lie, oops", status: "active", comment_root: listing_comment_root_init})
 listing33 = Listing.create!({brand: "freedom!", model: "the older one", price: "2.0", condition: "fairly new", 
-  start_time: "2015-10-23", end_time: "2016-2-20", description: "", status: nil, 
-  user_id: user3.id, tag_list: "old, lie, oops", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 50, description: "",  
+  user_id: user3.id, tag_list: "old, lie, oops", status: "active", comment_root: listing_comment_root_init})
 listing34 = Listing.create!({brand: "freedom!", model: "the coolest one", price: "2.0", condition: "fairly new", 
-  start_time: "2015-11-1", end_time: "2016-2-20", description: "", status: nil, 
-  user_id: user3.id, tag_list: "old, lie, oops", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 50, description: "",  
+  user_id: user3.id, tag_list: "old, lie, oops", status: "active", comment_root: listing_comment_root_init})
 
 listing41 = Listing.create!({brand: "Apeture Lab", model: "portal gun", price: "0.0", condition: "fairly new", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "For science!", status: nil, 
-  user_id: user4.id, tag_list: "new, gun, game, science, dangerous", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 50, description: "For science!",  
+  user_id: user4.id, tag_list: "new, gun, game, science, dangerous", status: "active", comment_root: listing_comment_root_init})
   listing_photo_seeder listing41, 'public/images/seed/portal_gun.jpg', 'portal here, portal there'
 listing42 = Listing.create!({brand: "Apeture Lab", model: "portal gun", price: "50.0", condition: "broken", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "For science!", status: nil, 
-  user_id: user4.id, tag_list: "gun, game, science, dangerous", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 54, description: "For science!",  
+  user_id: user4.id, tag_list: "gun, game, science, dangerous", status: "active", comment_root: listing_comment_root_init})
   listing_photo_seeder listing42, 'public/images/seed/portal_gun.jpg', 'the cake is a lie'
 listing43 = Listing.create!({brand: "Apeture Lab", model: "portal gun", price: "20.0", condition: "broken", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "For science!", status: nil, 
-  user_id: user4.id, tag_list: "broken, game, science, dangerous", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 52, description: "For science!",  
+  user_id: user4.id, tag_list: "broken, game, science, dangerous", status: "active", comment_root: listing_comment_root_init})
 
 listing51 = Listing.create!({brand: "Meeseeks box", model: "V0", price: "1000000.0", condition: "broken", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "woooooooo!", status: nil, 
-  user_id: user5.id, tag_list: "science, dangerous, rick, reliable", comment_root: listing_comment_root_init})
+  start_time: Date.today, end_time: Date.today + 50, description: "woooooooo!",  
+  user_id: user5.id, tag_list: "science, dangerous, rick, reliable", status: "active", comment_root: listing_comment_root_init})
   listing_photo_seeder listing51, 'public/images/seed/meeseeks_box1.jpg', 'just press the button'
   listing_photo_seeder listing51, 'public/images/seed/meeseeks_box2.png', 'I\'m Mr.Meeseeks! Look at me!'
-listing52 = Listing.create!({brand: "Jerry", model: "V0", price: "-1000000.0", condition: "broken", 
-  start_time: "2015-10-19", end_time: "2016-2-20", description: "woooooooo!", status: nil, 
-  user_id: user5.id, tag_list: "stupid, robot, pretty, american", comment_root: listing_comment_root_init})
+listing52 = Listing.create!({brand: "Jerry", model: "V0", price: "1000000.0", condition: "broken", 
+  start_time: Date.today, end_time: Date.today + 76, description: "woooooooo!",  
+  user_id: user5.id, tag_list: "stupid, robot, pretty, american", status: "active", comment_root: listing_comment_root_init})
   listing_photo_seeder listing52, 'public/images/seed/jerry.jpg', 'Ummmm... where am I?'
 
 Order.create!([
-  {user_id: user4.id, listing_id: listing12.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing12.price}, 
-  {user_id: user3.id, listing_id: listing11.id, status: "Processing", start_time: "2015-10-29", end_time: "2015-11-3", price: listing11.price},
-  {user_id: user2.id, listing_id: listing13.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing13.price},
-  {user_id: user5.id, listing_id: listing14.id, status: "Processing", start_time: "2015-10-28", end_time: "2015-11-24", price: listing14.price},
+  {user_id: user4.id, listing_id: listing12.id, status: "Processing", start_time: Date.today+7, end_time: Date.today + 10, price: listing12.price}, 
+  {user_id: user3.id, listing_id: listing11.id, status: "Processing", start_time: Date.today+4, end_time: Date.today + 11, price: listing11.price},
+  {user_id: user2.id, listing_id: listing13.id, status: "Processing", start_time: Date.today+8, end_time: Date.today + 23, price: listing13.price},
+  {user_id: user5.id, listing_id: listing14.id, status: "Processing", start_time: Date.today+3, end_time: Date.today + 5, price: listing14.price},
 
-  {user_id: user4.id, listing_id: listing22.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing22.price},
-  {user_id: user3.id, listing_id: listing23.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing23.price},
-  {user_id: user5.id, listing_id: listing24.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing24.price},
-  {user_id: user1.id, listing_id: listing21.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing21.price},
+  {user_id: user4.id, listing_id: listing22.id, status: "Processing", start_time: Date.today, end_time: Date.today + 5, price: listing22.price},
+  {user_id: user3.id, listing_id: listing23.id, status: "Processing", start_time: Date.today+12, end_time: Date.today + 16, price: listing23.price},
+  {user_id: user5.id, listing_id: listing24.id, status: "Processing", start_time: Date.today+5, end_time: Date.today + 10, price: listing24.price},
+  {user_id: user1.id, listing_id: listing21.id, status: "Processing", start_time: Date.today+15, end_time: Date.today + 23, price: listing21.price},
 
-  {user_id: user2.id, listing_id: listing32.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing32.price},
-  {user_id: user5.id, listing_id: listing34.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing34.price},
-  {user_id: user4.id, listing_id: listing31.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing31.price},
-  {user_id: user5.id, listing_id: listing33.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing33.price},
-  {user_id: user4.id, listing_id: listing32.id, status: "Processing", start_time: "2015-10-30", end_time: "2015-11-10", price: listing32.price},
-  {user_id: user1.id, listing_id: listing33.id, status: "Processing", start_time: "2015-10-30", end_time: "2015-11-14", price: listing33.price},
-  {user_id: user3.id, listing_id: listing31.id, status: "Processing", start_time: "2015-11-5", end_time: "2015-12-5", price: listing31.price},
+  {user_id: user2.id, listing_id: listing32.id, status: "Processing", start_time: Date.today+6, end_time: Date.today + 9, price: listing32.price},
+  {user_id: user5.id, listing_id: listing34.id, status: "Processing", start_time: Date.today+3, end_time: Date.today + 7, price: listing34.price},
+  {user_id: user4.id, listing_id: listing31.id, status: "Processing", start_time: Date.today+5, end_time: Date.today + 10, price: listing31.price},
+  {user_id: user5.id, listing_id: listing33.id, status: "Processing", start_time: Date.today+27, end_time: Date.today + 32, price: listing33.price},
+  {user_id: user4.id, listing_id: listing32.id, status: "Processing", start_time: Date.today+12, end_time: Date.today + 17, price: listing32.price},
+  {user_id: user1.id, listing_id: listing33.id, status: "Processing", start_time: Date.today+16, end_time: Date.today + 20, price: listing33.price},
+  {user_id: user3.id, listing_id: listing31.id, status: "Processing", start_time: Date.today+16, end_time: Date.today + 23, price: listing31.price},
 
-  {user_id: user2.id, listing_id: listing41.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing41.price},
-  {user_id: user3.id, listing_id: listing42.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing42.price},
-  {user_id: user1.id, listing_id: listing43.id, status: "Processing", start_time: "2015-10-24", end_time: "2015-10-27", price: listing43.price},
+  {user_id: user2.id, listing_id: listing41.id, status: "Processing", start_time: Date.today+6, end_time: Date.today + 13, price: listing41.price},
+  {user_id: user3.id, listing_id: listing42.id, status: "Processing", start_time: Date.today+24, end_time: Date.today + 27, price: listing42.price},
+  {user_id: user1.id, listing_id: listing43.id, status: "Processing", start_time: Date.today+36, end_time: Date.today + 44, price: listing43.price},
   ])

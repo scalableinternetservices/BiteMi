@@ -14,5 +14,6 @@ class CreateListings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_attachment :listings, :cover_photo
   end
 end

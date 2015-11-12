@@ -7,6 +7,9 @@ class Listing < ActiveRecord::Base
   validates :price, presence: true,
   	numericality: {greater_than_or_equal_to: 0}
 
+  has_attached_file :cover_photo
+  validates_attachment_content_type :cover_photo, :content_type => /\Aimage\/.*\Z/
+
   def delete
     update_attribute(:status, "inactive")
   end

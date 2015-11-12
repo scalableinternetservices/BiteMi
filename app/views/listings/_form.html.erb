@@ -67,7 +67,15 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div><br>
+  </div>
+
+  <div>
+    <p> Upload cover photo here!</p>
+    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
+    style="width:128px;height:128px;">
+    <%= f.file_field :cover_photo, :onchange => "readURL(this);"%>
+  </div>
+
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :status, :value => "active" %>
   <div class="actions">

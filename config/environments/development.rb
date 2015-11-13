@@ -52,7 +52,7 @@ Rails.application.configure do
     :url => '/images/:class/:attachment/:id/:style/:filename'
   }
 
-config.action_controller.perform_caching             = false
+config.action_controller.perform_caching             = true
 #config.cache_store = :nil
 
 end

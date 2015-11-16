@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028211606) do
+ActiveRecord::Schema.define(version: 20151114075918) do
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 20151028211606) do
   end
 
   add_index "product_photos", ["listing_id"], name: "index_product_photos_on_listing_id"
+
+  create_table "public_files", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "file_clip_file_name"
+    t.string   "file_clip_content_type"
+    t.integer  "file_clip_file_size"
+    t.datetime "file_clip_updated_at"
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

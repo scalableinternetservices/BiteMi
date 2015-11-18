@@ -64,8 +64,7 @@
           url='/users'
           version='1.1'
           method='POST'
-          contents='
-          user%5Bemail%5D=user%%_random_user_number%%@gmail.com&amp;
+          contents='user%5Bemail%5D=user%%_random_user_number%%@gmail.com&amp;
           user%5Bpassword%5D=11111111&amp;
           user%5Bpassword_confirmation%5D=11111111&amp;
           user%5Baddress%5D=blahblah&amp;
@@ -93,8 +92,7 @@
           url='/listings'
           version='1.1'
           method='POST'
-          contents='
-          listing%5Bbrand%5D=Apple&amp;
+          contents='listing%5Bbrand%5D=Apple&amp;
           listing%5Bmodel%5D=V%%_random_model_name%%&amp;
           listing%5Bprice%5D=2.0&amp;
           listing%5Bcondition%5D=Good&amp;

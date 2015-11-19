@@ -42,8 +42,12 @@ ActiveRecord::Schema.define(version: 20151028211606) do
     t.string   "status"
     t.integer  "user_id"
     t.integer  "comment_root"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"

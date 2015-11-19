@@ -1,40 +1,237 @@
+<% cache do %>
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<html>
-		<head>
-		  <title>About Us</title>
-		</head>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
-		<body>
-			<div class="container">
-		    <div class="row">
-			    <br>
-					<left><h2>About Us</h2></left>
-					<left><h3>What's GadgetBite</h3></left>
-
-					<p>GadgetBite is a website that helps people to share gadgets (like Occulus, Leap Motion, etc...)
+    <style>
+    	html, body {
+          font-family: "Helvetica Neue","Open Sans",Arial,sans-serif;
+          background-color: #e7e7e7;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="container">
+    <div class="row">
+        <h1 class="title">
+            What's Gadgetbite ?
+            <br>
+            <small>GadgetBite is a website that helps people to share gadgets (like Occulus, Leap Motion, etc...)
 					If you have spare gadgets, list them on GadgetBite and rent them to others.
-					If you want to have hands-on experience some cool gadget without actually buying it, get it via us.</p>
+					If you want to have hands-on experience some cool gadget without actually buying it, get it via us.</small>
+        </h1>
 
-					<table border="1" style="width:200" align="left">
-						<tr>
-							<td><%= image_tag "teammates/yichen.jpg", :size => '200'%></td>
-							<td><%= image_tag "teammates/mi.jpg", :size => '200'%></td>
-							<td><%= image_tag "teammates/tom.jpg", :size => '200'%></td>
-							<td><%= image_tag "teammates/claire.jpg", :size => '200'%></td>
-						</tr>
+        <div class="col-sm-10 col-sm-offset-1">
+        	<h1 class="title">
+            Team members
+        	</h1>
+         <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="/images/about/rotating_card_thumb3.png"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="/images/teammates/yichen.jpg"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Yichen Pan</h3>
+                                <br>
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Los Angeles, CA</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> UCLA </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> panyichen@outlook.com</h5>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <!-- <h5 class="motto">"Works in this project"</h5> -->
+                            <div class="content">
+                            <div class="main">
+                                <h5 class="text-center">Jobs in this project</h5>
+                                <!-- <h5 class="motto">Front End (HTML, CSS, Bootstrap, Javascript ...)</h5> -->
+                            </div>
+                        </div>
+                        <div class="footer">
+	                            <div class="social-links text-center">
+	                                <a href="http://www.ucla.edu" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+	                            </div>
+                        	</div>
+                        </div> 
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+<!--         <div class="col-sm-1"></div> -->
+        
+<!--         <div class="col-sm-1"></div> -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="/images/about/rotating_card_thumb2.png"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="/images/teammates/mi.jpg"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Yueyang Mi</h3>
+                                <br>
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Los Angeles, CA</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Amazon Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> miyueyang@gmail.com</h5>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <!-- <h5 class="motto">"Works in this project"</h5> -->
+                            <div class="content">
+                            <div class="main">
+                                <h5 class="text-center">Jobs in this project</h5>
+                                <!-- <h5 class="motto">Front End (HTML, CSS, Bootstrap, Javascript ...)</h5> -->
+                            </div>
+                        </div>
+                        <div class="footer">
+	                            <div class="social-links text-center">
+	                                <a href="http://www.ucla.edu" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+	                            </div>
+                        	</div>
+                        </div> 
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col-sm-3 -->
 
-						<left><h3>Team Members</h3></left>
+        <div class="col-md-4 col-sm-6">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="/images/about/rotating_card_thumb.png"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="/images/teammates/tom.jpg"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Tom(Haonan) Zhou</h3>
+                                <br>
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Los Angeles, CA</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> UCLA </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> tomzhou94@gmail.com</h5>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <!-- <h5 class="motto">"Works in this project"</h5> -->
+                            <div class="content">
+                            <div class="main">
+                                <h5 class="text-center">Jobs in this project</h5>
+                                <!-- <h5 class="motto">Front End (HTML, CSS, Bootstrap, Javascript ...)</h5> -->
+                            </div>
+                        </div>
+                        <div class="footer">
+	                            <div class="social-links text-center">
+	                                <a href="http://www.ucla.edu" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+	                            </div>
+                        	</div>
+                        </div> 
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col-sm-3 -->
 
-						<tr>
-							<td><center>Yichen Pan</center></td>
-							<td><center>Yueyang Mi</center></td>
-							<td><center>Tom Zhou</center></td>
-							<td><center>Lingyu Zhang</center></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</body>
-	</html>
-          
-      
+        <div class="col-md-4 col-sm-6">
+        </div>      
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="/images/about/rotating_card_thumb2.png"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="/images/teammates/claire.jpg"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Claire(Lingyu) Zhang</h3>
+                                <br>
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Los Angeles, CA</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> LinkedIn Co. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> claireverzhang@gmail.com</h5>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <!-- <h5 class="motto">"Works in this project"</h5> -->
+                            <div class="content">
+                            <div class="main">
+                                <h5 class="text-center">Jobs in this project</h5>
+                                <!-- <h5 class="motto">Front End (HTML, CSS, Bootstrap, Javascript ...)</h5> -->
+                            </div>
+                        </div>
+                        <div class="footer">
+	                            <div class="social-links text-center">
+	                                <a href="http://www.ucla.edu" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+	                                <a href="http://www.ucla.edu" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+	                            </div>
+                        	</div>
+                        </div> 
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col-sm-3 -->
+
+        <div class="col-md-4 col-sm-6">
+        </div>  
+
+        </div> <!-- end col-sm-10 --> 
+    </div> <!-- end row -->
+    <div class="space-200"></div>    
+</div>
+
+<script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	
+<script type="text/javascript">
+    // $().ready(function(){
+    //     $('[rel="tooltip"]').tooltip();
+        
+    // });
+    
+    // function rotateCard(btn){
+    //     var $card = $(btn).closest('.card-container');
+    //     console.log($card);
+    //     if($card.hasClass('hover')){
+    //         $card.removeClass('hover');
+    //     } else {
+    //         $card.addClass('hover');
+    //     }
+    // }
+</script>
+
+</body>
+</html>
+<% end %>

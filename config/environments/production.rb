@@ -86,6 +86,10 @@ Rails.application.configure do
       :region => 'us-west-2'
     },
     :fog_directory => 'scalableinternetservices',
-    :path => 'BiteMi/'
+    :path => 'BiteMi/images/:class/:attachment/:id/:style/:filename',
+    :url => '/images/:class/:attachment/:id/:style/:filename'
   }
+  
+  # Turn off caching in production for now
+  config.action_controller.perform_caching             = false 
 end

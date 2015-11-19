@@ -11,14 +11,6 @@
     </div>
   <% end %>
 
-
-    <div class="control-group">
-      <%= f.label :brand, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :brand, :class => 'text_field' %>
-      </div>
-    </div>
-
   <div class="field">
     <%= f.label :brand %><br>
     <%= f.text_field :brand %>
@@ -33,19 +25,19 @@
   </div>
   <div class="field">
     <%= f.label :condition %><br>
-    <%= f.text_field :condition %>
+    <%= f.select :condition, options_for_select(["Accceptable", "Good", "Like New"]) %>
   </div>
-  <div class="form-group">
+  <div class="field">
       <%= f.label(:tag_list, "Tags* (seperated by commas)") %><br />
       <%= f.text_field(:tag_list, value: @listing.tag_list.join(","))%>
   </div>
   <div class="field">
     <%= f.label :start_time %><br>
-    <%= f.text_field :start_time, class: "listing_start_time" %>
+    <%= f.text_field :start_time, class: "listing_start_time", :readonly => true %>
   </div>
   <div class="field">
     <%= f.label :end_time %><br>
-    <%= f.text_field :end_time,  class: "listing_end_time"  %>
+    <%= f.text_field :end_time,  class: "listing_end_time", :readonly => true  %>
   </div>
 
   <script>
@@ -75,9 +67,17 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div><br>
+  </div>
+
+  <div>
+    <p> Upload cover photo here!</p>
+    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
+    style="width:128px;height:128px;">
+    <%= f.file_field :cover_photo, :onchange => "readURL(this);"%>
+  </div>
+
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  
+  <%= f.hidden_field :status, :value => "active" %>
   <div class="actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
   </div>

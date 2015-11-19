@@ -5,7 +5,35 @@
 
 <h1>My Orders</h1>
 
-<%= render 'index' %>
+<table class="orders">
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Status</th>
+      <th>Price</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.start_time %></td>
+        <td><%= order.end_time %></td>
+        <td><%= order.status %></td>
+        <td><%= order.price %></td>
+        <td><%= link_to 'Show', order %></td>
+
+        <% if order.status == "Processing" %>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to CANCEL this order?' } %></td>
+        <% end %>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 </div>
 </div>

@@ -17,12 +17,17 @@
         <td><%= order.status %></td>
         <td><%= order.price %></td>
         <td><%= link_to 'Show', order %></td>
+
+        <% if order.status == "Processing" %>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
         <% if order.status == "Processing" %>
         <td><%= link_to 'Accept', orders_accept_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Deny', orders_deny_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        
       </tr>
     <% end %>
   </tbody>

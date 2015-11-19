@@ -22,22 +22,15 @@
 
 <br><br>
 
-<%= form_tag listings_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-<% if @listings.empty? %>
-  <p>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</p>
-<% end %>
-
 <br><br>
 
 <div class="wrapper">
     <div class="container">
 
+        <% if @listings.empty? %>
+          <h2>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</h2>
+        <% else %>
+        <%= will_paginate @listings %>
         <div class="masonry-container">
 
             <% @listings.each do |listing| %>
@@ -59,6 +52,8 @@
 
                         <p class="description">
                           <% if listing.user_id != current_user.id %><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %>
+                          <%else%>
+                            <br>
                           <% end %>
                         </p>
 
@@ -67,7 +62,7 @@
              </div>
 
             <% end %>
-
+        <% end %>
         </div>
 
     </div>

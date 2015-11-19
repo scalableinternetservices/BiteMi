@@ -23,6 +23,12 @@
     <arrivalphase phase="3" duration="60" unit="second">
       <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
+    <arrivalphase phase="4" duration="60" unit="second">
+      <users arrivalrate="8" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="5" duration="60" unit="second">
+      <users arrivalrate="16" unit="second"></users>
+    </arrivalphase>
   </load>
 
   <options>
@@ -92,7 +98,7 @@
           listing%5Bmodel%5D=V%%_random_model_name%%&amp;
           listing%5Bprice%5D=2.0&amp;
           listing%5Bcondition%5D=Good&amp;
-          listing%5Bstart_time%5D=2015-11-5&amp;
+          listing%5Bstart_time%5D=2015-11-16&amp;
           listing%5Bend_time%5D=2015-12-25&amp;
           commit=Create+Listing'>
         </http>
@@ -101,14 +107,6 @@
       
 
        <!-- Uncomment the following to debug print your dynamic variables  -->
-      <!--
-      <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
-        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
-        ok end.">
-        <var name="dump" />
-      </setdynvars>
-    -->
-
       
 
     </session>

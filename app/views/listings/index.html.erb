@@ -26,10 +26,11 @@
 
 <div class="wrapper">
     <div class="container">
+
         <% if @listings.empty? %>
           <h2>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</h2>
-        <% end %>
-
+        <% else %>
+        <%= will_paginate @listings %>
         <div class="masonry-container">
 
             <% @listings.each do |listing| %>
@@ -61,7 +62,7 @@
              </div>
 
             <% end %>
-
+        <% end %>
         </div>
 
     </div>

@@ -6,6 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#### Helper to seed listings#####
+def listing_seeder (user_id, brand, model, cover_photo_path, tags)
+  Listing.create!( {brand: brand, model: model, price: rand(5..50).to_s, condition: "good", 
+  start_time: Date.today, end_time: Date.today + rand(10..50), 
+  description: "wow!", user_id: user_id, 
+  tag_list: tags, status: "active", comment_root: listing_comment_root_init, 
+  cover_photo: File.open(Rails.root + 'public/images/seed/'+ cover_photo_path)})
+end
+
+
 #### Helper to seed listing photos #####
 #### please put all the product listing photos under images/seed ####
 def listing_photo_seeder (listing, image_path, description)
@@ -20,7 +30,8 @@ def listing_comment_root_init
   comment.save
   return comment.id
 end
-#########
+
+########
 User.delete_all
 Listing.delete_all
 Order.delete_all
@@ -191,3 +202,8 @@ Order.create!([
   {user_id: user3.id, listing_id: listing42.id, status: "Processing", start_time: Date.today+24, end_time: Date.today + 27, price: listing42.price},
   {user_id: user1.id, listing_id: listing43.id, status: "Processing", start_time: Date.today+36, end_time: Date.today + 44, price: listing43.price},
   ])
+
+######## random seeds! ##########
+100.times do
+  listing_seeder user1.id, 'Occulus', 'Rift', 'occulus.jpg', 'VR, future, facebook'
+end

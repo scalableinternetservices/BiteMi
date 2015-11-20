@@ -57,6 +57,9 @@ gem 'acts-as-taggable-on'
 # For New Relic
 gem 'newrelic_rpm'
 
+# For pagination
+gem 'will_paginate', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

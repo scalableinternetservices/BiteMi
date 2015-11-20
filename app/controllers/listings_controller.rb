@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
       with(:status, 'active')
       fulltext params[:search]
       spellcheck :count => 3
+      paginate :page => params[:page], :per_page => 9
     end
     @listings = @search.results
     @suggestion = @search.spellcheck_collation

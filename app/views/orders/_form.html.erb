@@ -1,3 +1,48 @@
+<h3>Listing Information:</h3>
+<% cache(cache_key_for_each_listing(@listing)) do %>
+<p>
+  <strong>Brand:</strong>
+  <%= @listing.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @listing.model %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @listing.condition %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @listing.tag_list.join(', ') %>
+</p>
+
+<p>
+  <strong>Listing Start time:</strong>
+  <%= @listing.start_time %>
+</p>
+
+<p>
+  <strong>Listing End time:</strong>
+  <%= @listing.end_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<% end %>
+
+<br><h3>Select your start and end time:</h3>
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">

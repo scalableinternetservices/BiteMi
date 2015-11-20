@@ -1,50 +1,57 @@
 <div class="container">
 <div class="row">
-<div >
 
 <% cache do %>
-<h2>Sign up</h2>
+<br><br>
+<legend>Sign up</legend>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <form class="form-horizontal">
+  <fieldset>  
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-envelope"></span>  <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-md" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="form-group">
+    <span class="glyphicon glyphicon-lock"></span>  <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , class: "form-control input-md" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <span class="glyphicon glyphicon-lock"></span>  <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-md" %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "off" %>
+  <div class="form-group">
+    <span class="glyphicon glyphicon-home"></span>  <%= f.label :address %>
+    <%= f.text_field :address, autocomplete: "off", class: "form-control input-md" %>
   </div>
 
-  <div>
-    <p> Upload your image here! don't be sneaky</p>
+  <div class="form-group">
+    <p> <span class="glyphicon glyphicon-cloud-upload"></span> <label> Upload your image! </label></p>
     <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
     style="width:128px;height:128px;">
-    <%= f.file_field :avatar, :onchange => "readURL(this);"%>
+    <%= f.file_field :avatar, :onchange => "readURL(this);" %>
   </div>
 
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
+  <% end %>
 <% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+
+
+</fieldset>
+</form>
 </div>
 </div>

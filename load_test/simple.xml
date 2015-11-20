@@ -9,19 +9,25 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-52-11-28-61.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-52-27-46-220.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 
   <load>
-    <arrivalphase phase="1" duration="10" unit="second">
+    <arrivalphase phase="1" duration="60" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="2" duration="30" unit="second">
+    <arrivalphase phase="2" duration="60" unit="second">
+      <users arrivalrate="1.5" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="60" unit="second">
       <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="3" duration="30" unit="second">
-      <users arrivalrate="4" unit="second"></users>
+    <arrivalphase phase="4" duration="60" unit="second">
+      <users arrivalrate="8" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="5" duration="60" unit="second">
+      <users arrivalrate="16" unit="second"></users>
     </arrivalphase>
   </load>
 
@@ -46,7 +52,7 @@
 
       <!-- User sign up -->
       <request>
-        <http url='/users/signup' version='1.1' method='GET'></http>
+        <http url='/users/sign_up' version='1.1' method='GET'></http>
       </request>
 
       <setdynvars sourcetype="random_number" start="1" end="9999999">
@@ -58,59 +64,13 @@
           url='/users'
           version='1.1'
           method='POST'
-          contents='
-          user%5Bemail%5D=user%%_random_user_number%%@gmail.com&amp;
+          contents='user%5Bemail%5D=user%%_random_user_number%%@gmail.com&amp;
           user%5Bpassword%5D=11111111&amp;
           user%5Bpassword_confirmation%5D=11111111&amp;
-          user%5Baddress%5D=blahblah&amp;
+          user%5Baddress%5D=516 Glenrock Ave, Los Angeles&amp;
           commit=Sign+up'>
         </http>
       </request>
-
-
-      <!-- User view all listing -->
-      <request>
-        <http url='/listings' version='1.1' method='GET'></http>
-      </request>
-
-      <!-- User add a listing -->
-      <request>
-        <http url='/listings/new' version='1.1' method='GET'></http>
-      </request>
-
-      <setdynvars sourcetype="random_number" start="1" end="99999">
-        <var name="random_model_name" />
-      </setdynvars>
-
-      <request subst="true">
-        <http
-          url='/listings'
-          version='1.1'
-          method='POST'
-          contents='
-          listing%5Bbrand%5D=Apple&amp;
-          listing%5Bmodel%5D=V%%_random_model_name%%&amp;
-          listing%5Bprice%5D=2.0&amp;
-          listing%5Bcondition%5D=Good&amp;
-          listing%5Bstart_time%5D=2015-11-5&amp;
-          listing%5Bend_time%5D=2015-12-25&amp;
-          commit=Create+Listing'>
-        </http>
-      </request>
-
-
-      
-
-       <!-- Uncomment the following to debug print your dynamic variables  -->
-      
-      <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
-        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
-        ok end.">
-        <var name="dump" />
-      </setdynvars>
-
-      
-
     </session>
   </sessions>
 </tsung>

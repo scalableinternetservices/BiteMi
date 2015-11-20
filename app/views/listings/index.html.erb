@@ -22,62 +22,56 @@
 
 <br><br>
 
-<br><br>
-
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
     <div class="container">
 
         <% if @listings.empty? %>
           <h2>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</h2>
         <% else %>
-        <%= will_paginate @listings %>
+          <%= will_paginate @listings %>
+        
         <div class="masonry-container">
 
-            <% @listings.each do |listing| %>
+          <% @listings.each do |listing| %>
+          <div class="card-box col-md-4 col-sm-6">
 
-            <div class="card-box col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="header">
-                        <%= image_tag (listing_cover_url listing) %>
-                        <div class="filter"></div>
+            <div class="card">
 
-                        <div class="actions">
-                              <%= link_to 'More Details', listing, class:"btn btn-round btn-fill btn-neutral btn-modern",role:"button"  %>
-                        </div>
-                    </div>
+              <div class="header">
+                <%= image_tag (listing_cover_url listing) %>
+                <div class="actions">
+                      <%= link_to 'More Details', listing, class:"btn btn-round btn-fill btn-neutral btn-modern",role:"button"  %>
+                </div>
+              </div>
+            
+              <div class="content">
+                <h6 class="category"><%= listing.model %></h6>
+                <h4 class="title"><a href="#"><%= listing.brand %></a></h4>
 
-                    <div class="content">
-                        <h6 class="category"><%= listing.model %></h6>
-                        <h4 class="title"><a href="#"><%= listing.brand %></a></h4>
+                <p class="description">
+                  <% if listing.user_id != current_user.id %>
+                    <%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %>
+                  <%else%>
+                    <%= link_to 'Edit', edit_listing_path(listing) %>
+                  <% end %>
+                </p>
+              </div>
 
-                        <p class="description">
-                          <% if listing.user_id != current_user.id %><%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %>
-                          <%else%>
-                            <br>
-                          <% end %>
-                        </p>
+            </div> <!-- end card -->
 
-                    </div>
-                </div> <!-- end card -->
-             </div>
+          </div> 
+          <% end %>
 
-            <% end %>
+        </div>    
         <% end %>
-        </div>
-
-    </div>
-</div> <!-- end wrapper -->
+    </div>  
+<!-- </div> end wrapper -->
 
 </body>
 
   <script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
   <script src="/assets/js/hipster-cards.js"></script>
-
-  <!--  Just for demo  -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
 
 
 </html>
-
-
-

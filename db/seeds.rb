@@ -15,6 +15,14 @@ def listing_seeder (user_id, brand, model, cover_photo_path, tags)
   cover_photo: File.open(Rails.root + 'public/images/seed/'+ cover_photo_path)})
 end
 
+def user_seeder (user_num)
+  new_user = User.create! :email => "user#{user_num}@gmail.com", 
+      :password => '11111111', :password_confirmation => '11111111', 
+      :address => '516 Glenrock Avenue, Los Angeles'
+  new_user.avatar = File.open(Rails.root + 'public/images/users/user1.jpeg')
+  new_user.save!
+end
+
 
 #### Helper to seed listing photos #####
 #### please put all the product listing photos under images/seed ####
@@ -206,4 +214,8 @@ Order.create!([
 ######## random seeds! ##########
 100.times do
   listing_seeder user1.id, 'Occulus', 'Rift', 'occulus.jpg', 'VR, future, facebook'
+end
+
+100.times do |i|
+  user_seeder i
 end

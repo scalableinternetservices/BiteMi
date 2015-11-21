@@ -1,7 +1,7 @@
 module ListingsHelper
 	def cache_key_for_all_listings
   	"listing-table-#{Listing.maximum(:updated_at)}"
-  end
+  	end
 
 	def cache_key_for_each_listing_card(listing)
 		"listing-card-#{listing.id}-#{listing.updated_at}"

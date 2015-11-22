@@ -26,8 +26,8 @@ class ListingsController < ApplicationController
     if @listing.user_id == current_user.id
       @listing_orders = Order.where({ listing_id: @listing.id })
     end
-
-     @comments = Comment.find_by_id(@listing.comment_root).hash_tree(limit_depth: 10)
+    @comments_root = Comment.find_by_id(@listing.comment_root)
+     @comments = @comments_root.hash_tree(limit_depth: 10)
   end
 
   # GET /listings/new
@@ -44,9 +44,9 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    comment = Comment.new(title: 'root', author: 'nobody', body: 'empty')
-    comment.save
-    @listing.comment_root = comment.id
+    @comment = Comment.new(title: 'root', author: 'nobody', body: 'empty')
+    @comment.save
+    @listing.comment_root = @comment.id
 
     respond_to do |format|
       if @listing.save

@@ -40,7 +40,9 @@
   <%= @listing.description %>
 </p>
 
-<% end %>
+<% end %> <!-- end cache -->
+
+<% cache do %>
 
 <br><h3>Select your start and end time:</h3>
 <%= form_for(@order) do |f| %>
@@ -157,3 +159,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<% end %> <!-- cache end -->

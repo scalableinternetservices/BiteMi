@@ -41,8 +41,8 @@ gem 'seed_dump'
 gem 'paperclip'
 
 # For fuzzy and spatial search
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'sunspot_rails', '= 2.2.0'
+gem 'sunspot_solr', '= 2.2.0'
 
 # For AWS
 gem 'aws-sdk', '< 2.0'
@@ -53,6 +53,9 @@ gem 'closure_tree'
 
 # For tagging
 gem 'acts-as-taggable-on'
+
+# For New Relic
+gem 'newrelic_rpm'
 
 # For pagination
 gem 'will_paginate', '~> 3.0'

@@ -1,98 +1,86 @@
-<div class="container">
-<div class="row">
-<div >
-<br>
-<p id="notice"><%= notice %></p>
-
+<!DOCTYPE html>
 <% cache(cache_key_for_each_listing(@listing)) do %>
-<p>
-  <strong>Brand:</strong>
-  <%= @listing.brand %>
-</p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @listing.model %>
-</p>
+<head>
+    <style>
+    .thumbnail img {
+        width: 100%;
+    }
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
+    .ratings {
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #d17581;
+    }
 
-<p>
-  <strong>Condition:</strong>
-  <%= @listing.condition %>
-</p>
+    .thumbnail {
+        padding: 0;
+    }
 
-<p>
-  <strong>Tags:</strong>
-  <%= @listing.tag_list.join(', ') %>
-</p>
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333;
+    }
 
-<p>
-  <strong>Start time:</strong>
-  <%= @listing.start_time %>
-</p>
+    footer {
+        margin: 50px 0;
+    }
+    </style>
+</head>
 
-<p>
-  <strong>End time:</strong>
-  <%= @listing.end_time %>
-</p>
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <div class = "row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="/images/slide1.jpg" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">$<%= @listing.price %></h4>
+                        <h4><%= @listing.brand %></h4>
+                        <h5><%= @listing.model %></h5>
+                        <p>
+                          <strong>Start time:</strong>
+                          <%= @listing.start_time %>
+                          <strong>End time:</strong>
+                          <%= @listing.end_time %>
+                        </p>
+                        <p>
+                          <strong>Condition:</strong>
+                          <%= @listing.condition %>
+                        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
+                        <p>
+                          <strong>Tags:</strong>
+                          <%= @listing.tag_list.join(', ') %>
+                        </p>
+                        <p>
+                          <strong>Description:</strong>
+                        </p>
+                        <p>
+                            <%= @listing.description %>
+                        </p>
+                    </div>
+                </div>
+                <%= render template: 'comments/index' %> <br>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
 
-<% end %>
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; GadgetBite</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-  <% if @listing.user_id == current_user.id %>
-  Orders of this listing: <br>
-    <table>
-      <thead>
-        <tr>
-          <th>Start time</th>
-          <th>End time</th>
-          <th>Status</th>
-          <th>Price</th>
-          <th colspan="5"></th>
-        </tr>
-      </thead>
+</body>
+<% end %> <!-- cache -->
 
-
-      <tbody>
-        <% @listing_orders.each do |order| %>
-          <tr>
-            <td><%= order.start_time %></td>
-            <td><%= order.end_time %></td>
-            <td><%= order.status %></td>
-            <td><%= order.price %></td>
-            <td><%= link_to 'Show', order %></td>
-            <td><%= link_to 'Edit', edit_order_path(order) %></td>
-            <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% if order.status == "Processing" %>
-            <td><%= link_to 'Accept', orders_accept_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
-            <td><%= link_to 'Deny', orders_deny_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p> There's no order for this listing yet @_@! </p>
-  <% end %>
-
-
-<%= render 'show_photos' %> <br>
-
-<%= render template: 'comments/index' %> <br>
-
-
-<% if (current_user.id == @listing.user_id ) %>
-  <%= link_to 'Edit', edit_listing_path(@listing) %> |
-<% end %>
-<%= link_to 'Back', listings_path %>
-</div>
-</div>
-</div>
+</html>

@@ -7,7 +7,11 @@ module ListingsHelper
 		"listing-card-#{listing.id}-#{listing.updated_at}"
 	end
 
-	def cache_key_for_each_listing(listing, root)
+	def cache_key_for_each_listing(listing)
+		"listing-#{listing.id}-#{listing.updated_at}"
+	end
+
+	def cache_key_for_each_listing_with_comment(listing, root)
 		"listing-#{listing.id}-#{listing.updated_at}-#{root.updated_at}"
 	end
 

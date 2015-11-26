@@ -33,7 +33,6 @@
         <div class="masonry-container">
 
           <% @listings.each do |listing| %>
-          <% cache(cache_key_for_each_listing_card(listing)) do %>
           <div class="card-box col-md-4 col-sm-6">
 
             <div class="card">
@@ -61,7 +60,6 @@
             </div> <!-- end card -->
 
           </div> 
-          <% end %> <!-- end cache -->
           <% end %>
 
         </div>    

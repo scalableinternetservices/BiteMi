@@ -1,5 +1,4 @@
 <h3>Listing Information:</h3>
-<% cache(cache_key_for_each_listing(@listing)) do %>
 <p>
   <strong>Brand:</strong>
   <%= @listing.brand %>
@@ -40,9 +39,6 @@
   <%= @listing.description %>
 </p>
 
-<% end %> <!-- end cache -->
-
-<% cache do %>
 
 <br><h3>Select your start and end time:</h3>
 <%= form_for(@order) do |f| %>
@@ -163,5 +159,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<% end %> <!-- cache end -->

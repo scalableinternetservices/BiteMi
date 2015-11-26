@@ -1,4 +1,4 @@
-<% cache(cache_key_for_index_order(@orders)) do %>
+
 <div class="container">
   <br>
   <h1>My Orders</h1>
@@ -18,7 +18,6 @@
 
         <tbody>
           <% @orders.each do |order| %>
-            <% cache(cache_key_for_each_order_row(order)) do %>
               <tr>
               <td><%= order.start_time %></td>
               <td><%= order.end_time %></td>
@@ -30,11 +29,9 @@
               <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to CANCEL this order?' } %></td>
               <% end %>
               </tr>
-            <% end %> <!-- cache end -->
           <% end %>
        </tbody>
       </table>
     </div>
   </div>
 </div>
-<% end %> <!-- cache end -->

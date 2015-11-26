@@ -91,5 +91,5 @@ Rails.application.configure do
   }
   
   # Turn off caching in production for now
-  config.action_controller.perform_caching             = true 
+  config.action_controller.perform_caching             = false 
 end

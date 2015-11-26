@@ -61,12 +61,12 @@
 
   <div class="field">
     <%= f.label :start_time %><br>
-    <%= f.text_field :start_time, class: "order_start_time", :readonly => true %>
+    <%= f.text_field :start_time, class: "order_start_time" %>
   </div>
 
   <div class="field">
     <%= f.label :end_time %><br>
-    <%= f.text_field :end_time, class: "order_end_time", :readonly => true  %>
+    <%= f.text_field :end_time, class: "order_end_time"  %>
 
     <script>
     var selected_start_date = null;
@@ -74,11 +74,13 @@
     function start_and_end(){
       var start = JSON.parse("<%= raw escape_javascript Order.where('listing_id = ? AND id <> ?', @listing.id, @order.id).map(&:start_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
       var end = JSON.parse("<%= raw escape_javascript Order.where('listing_id = ? AND id <> ?', @listing.id, @order.id).map(&:end_time).map {|t| t.strftime('%F') if (t!=nil)}.to_json %>");
-      return [start, end];
+      return {start: start, end: end};
     }
 
     function dateDisabled(date){
-      [start, end] = start_and_end();
+      var result = start_and_end();
+      var start = result.start;
+      var end = result.end;
 
       var len = start.length;
       //console.log(len);
@@ -102,7 +104,9 @@
       if(dateDisabled(date)[0] == false)
         return [false, ""];
 
-      [start, end] = start_and_end();
+      var result = start_and_end();
+      var start = result.start;
+      var end = result.end;
       var len = start.length;
       var last_available = null;
       for(var i = 0; i < len; i++){

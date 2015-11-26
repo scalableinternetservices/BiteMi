@@ -105,22 +105,31 @@
       </request>
 
       <!-- User search for free stuff -->
-      <request subst="true">
-        <http
-          url='/listings?search=free'
-          version='1.1'
-          method='POST'>
-        </http>
-      </request>      
+      <request>
+        <http url='/listings?search=free' version='1.1' method='GET'></http>
+      </request>    
       
       <!-- User search for freedom -->
+      <request>
+        <http url='/listings?search=freedom' version='1.1' method='GET'></http>
+      </request>    
+
+
       <request subst="true">
         <http
-          url='/listings?search=freedom'
+          url='/orders'
           version='1.1'
-          method='POST'>
+          method='POST'
+          contents='order%5Bprice%5D=120&amp;
+          order%5Buser_id%5D=2&amp;
+          order%5Blisting_id%5D=1&amp;
+          order%5Bstatus%5D=Processing&amp;
+          order%5Bstart_time%5D=2015-11-18&amp;
+          order%5Bend_time%5D=2015-12-22&amp;
+          commit=Create+Listing'>
         </http>
-      </request> 
+      </request>
+      
        <!-- Uncomment the following to debug print your dynamic variables  -->
       
 <!--       <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->

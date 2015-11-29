@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 	  end
 
 		if @comment.save
+			@comment.root.touch
 			flash[:success] = 'Your comment was successfully added!'
 				listing = Listing.find_by_comment_root(@comment.root);
 		    redirect_to listing_path(listing.id)

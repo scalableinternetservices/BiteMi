@@ -53,6 +53,6 @@ Rails.application.configure do
   }
 
 config.action_controller.perform_caching             = true
-#config.cache_store = :nil
+config.cache_store = :memory_store
 
 end

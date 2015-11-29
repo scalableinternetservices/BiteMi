@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @search = Listing.search do
+    @search = Listing.includes(:model, :brand, :cover_photo).search do
       with(:status, 'active')
       fulltext params[:search]
       spellcheck :count => 3

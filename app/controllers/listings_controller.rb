@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @search = Listing.includes(:model, :brand, :cover_photo, :updated_at).search do
+    @search = Listing.search do
       with(:status, 'active')
       fulltext params[:search]
       spellcheck :count => 3
@@ -21,10 +21,10 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @product_photos = ProductPhoto.where({ listing_id: @listing.id })
+    @product_photos = @listing.product_photos
 
     if @listing.user_id == current_user.id
-      @listing_orders = Order.where({ listing_id: @listing.id })
+      @listing_orders = @listing.orders
     end
     @comments_root = Comment.find_by_id(@listing.comment_root)
      @comments = @comments_root.hash_tree(limit_depth: 10)
@@ -87,7 +87,8 @@ class ListingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = Listing.includes(:orders, :product_photos)
+                        .find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

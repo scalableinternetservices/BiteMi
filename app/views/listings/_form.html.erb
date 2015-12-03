@@ -41,7 +41,7 @@
 
   <div class="form-group">
   <span class="glyphicon glyphicon-wrench"> </span> <%= f.label :condition %> 
-  <%= f.select(:condition, options_for_select([["Accceptable", 1], ["Good", 2], ["Like New", 3]]), {}, {class: "form-control"}) %>
+  <%= f.select(:condition, options_for_select(["Accceptable", "Good", "Like New"]), {}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group">

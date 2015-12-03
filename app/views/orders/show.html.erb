@@ -3,6 +3,31 @@
 	<br><h1>Show Order</h1>
 	<p id="notice"><%= notice %></p>
 	<br>
+
+	<p>
+		<%= link_to 'Review Listing', listing_path(@order.listing_id) %>
+	</p>
+
+	<p>
+	  <strong>Owner:</strong>
+	  <%= User.find(Listing.find(@order.listing_id).user_id).email %>
+	</p>
+
+	<p>
+	  <strong>Owner location:</strong>
+	  <%= User.find(Listing.find(@order.listing_id).user_id).address %>
+	</p><br>
+
+	<p>
+	  <strong>Requester:</strong>
+	  <%= User.find(@order.user_id).email %>
+	</p>
+
+	<p>
+	  <strong>Requester location:</strong>
+	  <%= User.find(@order.user_id).address %>
+	</p><br>
+
 	<p>
 	  <strong>Start time:</strong>
 	  <%= @order.start_time %>

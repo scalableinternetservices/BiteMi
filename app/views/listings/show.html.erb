@@ -6,6 +6,7 @@
     footer {
         margin: 50px 0;
     }
+
     </style>
 
     <link href="/assets/css/show.css" rel='stylesheet'>
@@ -20,7 +21,7 @@
             <div class="container"> 
                 
                     <div class="col-md-12">
-                         
+                        <%= image_tag (listing_cover_url @listing), height: "300" %>
                     </div>
                 
                     <div class="col-md-7">
@@ -29,11 +30,17 @@
                     
                     <hr>
                     <div class="product-price">$<%= @listing.price %></div>
-                    <div class="product-stock">End Time: <%= @listing.end_time %></div>
+                    <div class="product-stock">Duration: <%= @listing.start_time %> ~ <%= @listing.end_time %></div>
+                    <div class="product-desc">Tags: <%= @listing.tag_list.join(', ') %></div>
+                    <div class="product-desc">Owner: <%= User.find(@listing.user_id).email  %></div>
+                    <div class="product-desc">Gadget location: <%= User.find(@listing.user_id).address  %></div>
                     <hr>
+
+                    <% if @listing.user_id != current_user.id %>
                     <div class="btn-group cart">
                             <%= link_to 'Order', new_order_path(:user => User.find(@listing.user_id).id, :listing => @listing.id), class:"btn btn-success", type:"button"%> 
                     </div>
+                    <% end %>
                 </div>
 
             </div> 
@@ -46,27 +53,72 @@
                         
                         <li class="active"><a href="#service-one" data-toggle="tab">Description</a></li>
                         <li><a href="#service-two" data-toggle="tab">Reviews</a></li>
-                        
-                        
+                        <% if @listing.user_id == current_user.id %>
+                        <li><a href="#service-three" data-toggle="tab">Orders</a></li>
+                        <% end %>
+                        <li><a href="#service-four" data-toggle="tab">Photos</a></li>
+
                     </ul>
                 <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade in active" id="service-one">
-                         
-                            <section class="container product-info">
-                                <%= @listing.description %>
-                            </section>
-                                          
-                        </div>
+                    <div class="tab-pane fade in active" id="service-one">
+                        <section class="container product-info">
+                            <%= @listing.description %>
+                        </section>          
+                    </div>
+
                     <div class="tab-pane fade" id="service-two">
-                        
                         <section class="container">
                         <% cache(cache_key_for_each_comment_tree(@listing, @comments_root)) do %>
                         <%= render template: 'comments/index' %> <br>
                         <% end %> <!-- cache end -->
                         </section>
-                        
                     </div>
                     
+                    <% if @listing.user_id == current_user.id %>
+                    <div class="tab-pane fade" id="service-three">
+                        <section class="container">
+                            <h2> Orders of this listing: </h2>
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th>Start time</th>
+                                  <th>End time</th>
+                                  <th>Status</th>
+                                  <th>Price</th>
+                                  <th colspan="5"></th>
+                                </tr>
+                              </thead>
+
+
+                              <tbody>
+                                <% @listing_orders.each do |order| %>
+                                  <tr>
+                                    <td><%= order.start_time %></td>
+                                    <td><%= order.end_time %></td>
+                                    <td><%= order.status %></td>
+                                    <td><%= order.price %></td>
+                                    <td><%= link_to 'Show', order %></td>
+                                    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+                                    <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    <% if order.status == "Processing" %>
+                                    <td><%= link_to 'Accept', orders_accept_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
+                                    <td><%= link_to 'Deny', orders_deny_path(:order_id => order.id), data: { confirm: 'Are you sure?' } %></td>
+                                    <% end %>
+                                  </tr>
+                                <% end %>
+                              </tbody>
+                            </table>                            
+                        </section>
+                    </div>
+                    <% end %>
+
+                    <div class="tab-pane fade" id="service-four">
+                        <section class="container">
+                            <%= render 'show_photos' %>
+                        </section>
+                    </div>
+
+
                 </div>
                 <hr>
             </div>

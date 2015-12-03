@@ -9,6 +9,7 @@
         
         <thead>
           <tr>
+            <th>Owner</th>
             <th>Start time</th>
             <th>End time</th>
             <th>Status</th>
@@ -21,6 +22,7 @@
           <% @orders.each do |order| %>
             <% cache(cache_key_for_each_order_row(order)) do %>
               <tr>
+              <td><%= User.find(Listing.find(order.listing_id).user_id).email %></td>
               <td><%= order.start_time %></td>
               <td><%= order.end_time %></td>
               <td><%= order.status %></td>

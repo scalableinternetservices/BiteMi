@@ -12,7 +12,7 @@ def listing_seeder (user_id, brand, model, cover_photo_path, tags, description)
   start_time: Date.today, end_time: Date.today + rand(10..50),
   description: description, user_id: user_id,
   tag_list: tags, status: "active", comment_root: listing_comment_root_init,
-  cover_photo: File.open(Rails.root + 'public/images/seed/'+ cover_photo_path)})
+  cover_photo: nil})
 end
 
 def user_seeder (user_num)
@@ -212,8 +212,8 @@ Order.create!([
   ])
 
 ######## random seeds! ##########
-5000.times do
-  listing_seeder user1.id, Faker::Hipster.words(2).join(" "), Faker::Hipster.word, 'occulus.jpg', Faker::Hipster.words(4).join(", "), Faker::Hipster.paragraph(5)
+100000.times do
+  listing_seeder user1.id, Faker::Hipster.words(2).join(" "), Faker::Hipster.word, 'occulus.jpg', Faker::Hipster.words(4).join(", "), Faker::Hipster.paragraph(10)
 end
 
 100.times do |i|

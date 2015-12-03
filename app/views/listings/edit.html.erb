@@ -5,10 +5,11 @@
 
 	<%= render 'show_photos' %>
 	<td><%= link_to 'add pictures', new_product_photo_path(:listing => @listing.id), :class => 'btn btn-primary' %></td><br>
+	<br>
 	<%= render 'form' %>
 
-<%= link_to 'Show', @listing, :class => 'btn' %> |
-<%= link_to 'Back', listings_path, :class => 'btn'%>
+	<%= link_to 'Show', @listing, :class => 'btn' %> |
+	<%= link_to 'Back', listings_path, :class => 'btn'%>
 
 </div>
 </div>

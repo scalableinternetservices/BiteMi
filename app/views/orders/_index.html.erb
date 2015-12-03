@@ -12,6 +12,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= User.find(Listing.find(order.listing_id).user_id).email %></td>
         <td><%= order.start_time %></td>
         <td><%= order.end_time %></td>
         <td><%= order.status %></td>

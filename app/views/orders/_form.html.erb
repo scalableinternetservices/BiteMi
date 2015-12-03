@@ -1,50 +1,60 @@
 <h3>Listing Information:</h3>
 <% cache(cache_key_for_each_listing(@listing)) do %>
-<p>
-  <strong>Brand:</strong>
-  <%= @listing.brand %>
-</p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @listing.model %>
-</p>
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Listing Info
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> Brand:
+                                    <span class="pull-right text-muted small"><em><%= @listing.brand %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> Model:
+                                    <span class="pull-right text-muted small"><em><%= @listing.model %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> Price:
+                                    <span class="pull-right text-muted small"><em><<%= @listing.price %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> Condition:
+                                    <span class="pull-right text-muted small"><em><%= @listing.condition %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-upload fa-fw"></i> Tags:
+                                    <span class="pull-right text-muted small"><em><%= @listing.tag_list.join(', ') %></p></em>
+                                    </span>
+                                </div>
+                                <div class="list-group-item">
+                                    <i class="fa fa-bolt fa-fw"></i> Listing Start time:
+                                    <span class="pull-right text-muted small"><em><%= @listing.start_time %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-warning fa-fw"></i> Listing End time:
+                                    <span class="pull-right text-muted small"><em><%= @listing.end_time %></em>
+                                    </span>
+    
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                  </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
-
-<p>
-  <strong>Condition:</strong>
-  <%= @listing.condition %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @listing.tag_list.join(', ') %>
-</p>
-
-<p>
-  <strong>Listing Start time:</strong>
-  <%= @listing.start_time %>
-</p>
-
-<p>
-  <strong>Listing End time:</strong>
-  <%= @listing.end_time %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
 
 <% end %> <!-- end cache -->
 
 <% cache do %>
 
-<br><h3>Select your start and end time:</h3>
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -58,15 +68,15 @@
     </div>
   <% end %>
 
-
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.text_field :start_time, class: "order_start_time" %>
+  <div class="form-group">
+    <span class="glyphicon glyphicon-time"> </span> <%= f.label :start_time %>
+    <%= f.text_field :start_time, :readonly => true, class: "form-control order_start_time" %>
   </div>
 
-  <div class="field">
-    <%= f.label :end_time %><br>
-    <%= f.text_field :end_time, class: "order_end_time"  %>
+  <div class="form-group">
+    <span class="glyphicon glyphicon-time"> </span> <%= f.label :end_time %>
+    <%= f.text_field :end_time, :readonly => true, class: "form-control order_end_time" %>
+  </div>
 
     <script>
     var selected_start_date = null;
@@ -160,7 +170,7 @@
   <%= f.hidden_field :listing_id, :value => @listing.id %>
     <%= f.hidden_field :status, :value => "Processing" %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn btn-lg btn-success btn-block' %>
   </div>
 <% end %>
 

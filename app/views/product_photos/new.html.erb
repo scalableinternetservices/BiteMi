@@ -1,7 +1,11 @@
-<h1>Add a new photo for your product!</h1>
+<div class="container">
+<div class="row">
+	<br><br>
+<h2>Add a new photo for your product!</h2>
 
 <%= render 'form' %>
 
 <!-- need a better path = =... -->
-<%= link_to 'Back', listings_path %>
-<%= link_to 'Back', listing_path(params[:listing]) %>
+<%= link_to 'Back', listing_path(params[:listing]), class:"btn btn-primary" %>
+</div>
+</div>

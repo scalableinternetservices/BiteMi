@@ -1,53 +1,64 @@
 <div class="container">
+	<br><br>
 	<div class="row">
-	<br><h1>Show Order</h1>
 	<p id="notice"><%= notice %></p>
 	<br>
 
-	<p>
-		<%= link_to 'Review Listing', listing_path(@order.listing_id) %>
-	</p>
-
-	<p>
-	  <strong>Owner:</strong>
-	  <%= User.find(Listing.find(@order.listing_id).user_id).email %>
-	</p>
-
-	<p>
-	  <strong>Owner location:</strong>
-	  <%= User.find(Listing.find(@order.listing_id).user_id).address %>
-	</p><br>
-
-	<p>
-	  <strong>Requester:</strong>
-	  <%= User.find(@order.user_id).email %>
-	</p>
-
-	<p>
-	  <strong>Requester location:</strong>
-	  <%= User.find(@order.user_id).address %>
-	</p><br>
-
-	<p>
-	  <strong>Start time:</strong>
-	  <%= @order.start_time %>
-	</p>
-
-	<p>
-	  <strong>End time:</strong>
-	  <%= @order.end_time %>
-	</p>
-
-	<p>
-	  <strong>Status:</strong>
-	  <%= @order.status %>
-	</p>
-
-	<p>
-	  <strong>Price:</strong>
-	  <%= @order.price %>
-	</p>
-
-	<%= link_to 'Edit', edit_order_path(@order) %>
+	<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Listing Info
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> Owner:
+                                    <span class="pull-right text-muted small"><em><%= User.find(Listing.find(@order.listing_id).user_id).email %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> Owner location:
+                                    <span class="pull-right text-muted small"><em><%= User.find(Listing.find(@order.listing_id).user_id).address %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> Requester:
+                                    <span class="pull-right text-muted small"><em><%= User.find(@order.user_id).email %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> Requester location:
+                                    <span class="pull-right text-muted small"><em><%= User.find(@order.user_id).address %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-upload fa-fw"></i> Start time:
+                                    <span class="pull-right text-muted small"><em><%= @order.start_time %></em>
+                                    </span>
+                                </div>
+                                <div class="list-group-item">
+                                    <i class="fa fa-bolt fa-fw"></i> End time:
+                                    <span class="pull-right text-muted small"><em><%= @order.end_time %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-warning fa-fw"></i> Status:
+                                    <span class="pull-right text-muted small"><em><%= @order.status %></em>
+                                    </span>
+                                </div>
+                                <div href="#" class="list-group-item">
+                                    <i class="fa fa-shopping-cart fa-fw"></i> Price:
+                                    <span class="pull-right text-muted small"><em><%= @order.price %></em>
+                                    </span>
+                                </div>
+    
+                            </div>
+                            <!-- /.list-group -->
+                            <%= link_to 'Edit', edit_order_path(@order), class:"btn btn-lg btn-success btn-block"%><br>
+                            <%= link_to 'Review Listing', listing_path(@order.listing_id), class:"btn btn-lg btn-success btn-block" %>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
 	</div>
 </div>

@@ -215,7 +215,7 @@ Order.create!([
   ])
 
 ######## random seeds! ##########
-10000.times do
+100000.times do
   listing_seeder user1.id, FFaker::HipsterIpsum.words(2).join(" "), FFaker::HipsterIpsum.word, 'occulus.jpg', FFaker::HipsterIpsum.words(4).join(", "), FFaker::HipsterIpsum.paragraph(10)
 end
 

@@ -11,33 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
+  <style>
+  .d_avator{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 25px;
+  }
+
+  .Upload{
+      font-weight: bold;
+      vertical-align: text-bottom;
+  }
+  </style>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-chevron-right"></span> <%= f.label :brand %>
+    <%= f.text_field :brand, autofocus: true, class: "form-control input-md" %>
   </div>
-  <div class="field">
-    <%= f.label :model %><br>
-    <%= f.text_field :model %>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-chevron-right"></span> <%= f.label :model %>
+    <%= f.text_field :model, autofocus: true, class: "form-control input-md" %>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-usd"> </span> <%= f.label :price %>
+    <%= f.text_field :price, autofocus: true, class: "form-control input-md" %>
   </div>
-  <div class="field">
-    <%= f.label :condition %><br>
-    <%= f.select :condition, options_for_select(["Accceptable", "Good", "Like New"]) %>
+
+  <div class="form-group">
+  <span class="glyphicon glyphicon-wrench"> </span> <%= f.label :condition %> 
+  <%= f.select(:condition, options_for_select([["Accceptable", 1], ["Good", 2], ["Like New", 3]]), {}, {class: "form-control"}) %>
   </div>
-  <div class="field">
-      <%= f.label(:tag_list, "Tags* (seperated by commas)") %><br />
-      <%= f.text_field(:tag_list, value: @listing.tag_list.join(","))%>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-tag"> </span> <%= f.label(:tag_list, "Tags* (seperated by commas)") %>
+    <%= f.text_field(:tag_list, value: @listing.tag_list.join(","), class: "form-control input-md") %>
   </div>
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.text_field :start_time, class: "listing_start_time", :readonly => true %>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-time"> </span> <%= f.label :start_time %>
+    <%= f.text_field :start_time, :readonly => true, class: "form-control listing_start_time" %>
   </div>
-  <div class="field">
-    <%= f.label :end_time %><br>
-    <%= f.text_field :end_time,  class: "listing_end_time", :readonly => true  %>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-time"> </span> <%= f.label :end_time %>
+    <%= f.text_field :end_time, :readonly => true, class: "form-control listing_start_time" %>
   </div>
 
   <script>
@@ -64,16 +83,15 @@
     });
   </script>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+  <span class="glyphicon glyphicon-pencil"> </span> <%= f.label :description %><br>
+  <%= f.text_area :description, class: "form-control", id: "textarea", rows: "3"%>
 
-  <div>
-    <p> Upload cover photo here!</p>
-    <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
-    style="width:128px;height:128px;">
-    <%= f.file_field :cover_photo, :onchange => "readURL(this);"%>
+  <br>
+
+  <div class="form-group">
+    <span class="glyphicon glyphicon-picture"> </span> <b>Upload cover photo here!</b><br>
+    <img id="img_prev" src="#" style="width:512px;height:400px;" onError="this.onerror=null;this.src='/images/default-thumb.png'" class="file-loading formal-control">
+    <%= f.file_field :cover_photo, :onchange => "readURL(this);", class: 'Upload', id:'input-dim-2'%>
   </div>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>

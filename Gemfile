@@ -70,7 +70,7 @@ gem 'will_paginate', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 # Use Faker to generate mock data
-gem 'faker'
+gem 'ffaker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

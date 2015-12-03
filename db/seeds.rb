@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 #
-require 'faker'
+require 'ffaker'
 
 tardis = []
 

@@ -5,19 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#
-#
-require 'ffaker'
-
-tardis = []
 
 #### Helper to seed listings#####
-def listing_seeder (user_id, brand, model, cover_photo_path, tags, description, listing_seeds)
-  listing_seeds << {brand: brand, model: model, price: rand(5..50).to_s, condition: "good",
+
+require 'ffaker'
+
+def listing_seeder (user_id, brand, model, cover_photo_path, tags, description)
+  Listing.create!( {brand: brand, model: model, price: rand(5..50).to_s, condition: "good",
   start_time: Date.today, end_time: Date.today + rand(10..50),
   description: description, user_id: user_id,
   tag_list: tags, status: "active", comment_root: listing_comment_root_init,
-  cover_photo: nil}
+  cover_photo: nil})
 end
 
 def user_seeder (user_num)
@@ -218,10 +216,8 @@ Order.create!([
 
 ######## random seeds! ##########
 10000.times do
-  listing_seeder user1.id, Faker::Hipster.words(2).join(" "), Faker::Hipster.word, 'occulus.jpg', Faker::Hipster.words(4).join(", "), Faker::Hipster.paragraph(10), tardis
+  listing_seeder user1.id, FFaker::HipsterIpsum.words(2).join(" "), FFaker::HipsterIpsum.word, 'occulus.jpg', FFaker::HipsterIpsum.words(4).join(", "), FFaker::HipsterIpsum.paragraph(10)
 end
-
-Listing.create!(tardis)
 
 100.times do |i|
   user_seeder i

@@ -4,14 +4,16 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @search = Listing.search do
-      with(:status, 'active')
-      fulltext params[:search]
-      spellcheck :count => 3
-      paginate :page => params[:page], :per_page => 9
+    # @search = Listing.search do
+    #   with(:status, 'active')
+    #   fulltext params[:search]
+    #   spellcheck :count => 3
+    #   paginate :page => params[:page], :per_page => 9
+    @listings = Listing.where("status = 'active' AND (brand LIKE ? OR model LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%")
+    if @listings.empty?
+      @listings = Listing.tagged_with(params[:search].split(" "), :any => true).where("status = 'active'")
     end
-    @listings = @search.results
-    @suggestion = @search.spellcheck_collation
+    @listings = @listings.paginate(:page => params[:page], :per_page => 9)
   end
 
   def index_my

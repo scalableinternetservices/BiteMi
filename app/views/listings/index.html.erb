@@ -28,10 +28,10 @@
     <div class="container">
 
         <% if @listings.empty? %>
-          <h2>Did you mean <%= link_to @suggestion, :controller => "listings", :search => @suggestion %>?</h2>
+          <h2>Sorry, we didn't find any match.</h2>
         <% else %>
           <%= will_paginate @listings %>
-        
+
         <div class="masonry-container">
 
           <% @listings.each do |listing| %>
@@ -46,7 +46,7 @@
                       <%= link_to 'More Details', listing, class:"btn btn-round btn-fill btn-neutral btn-modern",role:"button"  %>
                 </div>
               </div>
-            
+
               <div class="content">
                 <h6 class="category"><%= listing.model %></h6>
                 <h4 class="title"><a href="#"><%= listing.brand %></a></h4>
@@ -62,13 +62,13 @@
 
             </div> <!-- end card -->
 
-          </div> 
+          </div>
           <% end %> <!-- end cache -->
           <% end %>
 
-        </div>    
+        </div>
         <% end %>
-    </div>  
+    </div>
 <!-- </div> end wrapper -->
 
 </body>

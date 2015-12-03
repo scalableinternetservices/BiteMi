@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #### Helper to seed listings#####
+
+require 'faker'
+
 def listing_seeder (user_id, brand, model, cover_photo_path, tags, description)
   Listing.create!( {brand: brand, model: model, price: rand(5..50).to_s, condition: "good",
   start_time: Date.today, end_time: Date.today + rand(10..50),
@@ -212,7 +215,7 @@ Order.create!([
   ])
 
 ######## random seeds! ##########
-100000.times do
+10000.times do
   listing_seeder user1.id, Faker::Hipster.words(2).join(" "), Faker::Hipster.word, 'occulus.jpg', Faker::Hipster.words(4).join(", "), Faker::Hipster.paragraph(10)
 end
 

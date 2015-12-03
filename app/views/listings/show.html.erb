@@ -1,88 +1,82 @@
 <!DOCTYPE html>
-<% cache(cache_key_for_each_listing_with_comment(@listing, @comments_root)) do %>
+
 
 <head>
     <style>
-    .thumbnail img {
-        width: 100%;
-    }
-
-    .ratings {
-        padding-right: 10px;
-        padding-left: 10px;
-        color: #d17581;
-    }
-
-    .thumbnail {
-        padding: 0;
-    }
-
-    .thumbnail .caption-full {
-        padding: 9px;
-        color: #333;
-    }
-
     footer {
         margin: 50px 0;
     }
     </style>
+
+    <link href="/assets/css/show.css" rel='stylesheet'>
 </head>
 
 <body>
-    <!-- Page Content -->
-    <div class="container">
-        <div class = "row">
-            <div class="col-md-12">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="/images/slide1.jpg" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">$<%= @listing.price %></h4>
-                        <h4><%= @listing.brand %></h4>
-                        <h5><%= @listing.model %></h5>
-                        <p>
-                          <strong>Start time:</strong>
-                          <%= @listing.start_time %>
-                          <strong>End time:</strong>
-                          <%= @listing.end_time %>
-                        </p>
-                        <p>
-                          <strong>Condition:</strong>
-                          <%= @listing.condition %>
-                        </p>
-
-                        <p>
-                          <strong>Tags:</strong>
-                          <%= @listing.tag_list.join(', ') %>
-                        </p>
-                        <p>
-                          <strong>Description:</strong>
-                        </p>
-                        <p>
-                            <%= @listing.description %>
-                        </p>
+    <br>
+    <br>
+    <div class="container-fluid">
+    <div class="content-wrapper">   
+        <!-- <div class="item-container">     -->
+            <div class="container"> 
+                
+                    <div class="col-md-12">
+                         
+                    </div>
+                
+                    <div class="col-md-7">
+                    <div class="product-title"><%= @listing.brand %> <%= @listing.model %></div>
+                    <div class="product-desc">Condition: <%= @listing.condition %></div>
+                    
+                    <hr>
+                    <div class="product-price">$<%= @listing.price %></div>
+                    <div class="product-stock">End Time: <%= @listing.end_time %></div>
+                    <hr>
+                    <div class="btn-group cart">
+                            <%= link_to 'Order', new_order_path(:user => User.find(@listing.user_id).id, :listing => @listing.id), class:"btn btn-success", type:"button"%> 
                     </div>
                 </div>
-                <% cache(cache_key_for_each_comment_tree(@listing, @comments_root)) do %>
-                <%= render template: 'comments/index' %> <br>
-                <% end %> <!-- cache end -->
+
+            </div> 
+        <!-- </div> -->
+        <div class = "container">
+        <div class = "row">
+        <div class="container-fluid">       
+            <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs">
+                        
+                        <li class="active"><a href="#service-one" data-toggle="tab">Description</a></li>
+                        <li><a href="#service-two" data-toggle="tab">Reviews</a></li>
+                        
+                        
+                    </ul>
+                <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="service-one">
+                         
+                            <section class="container product-info">
+                                <%= @listing.description %>
+                            </section>
+                                          
+                        </div>
+                    <div class="tab-pane fade" id="service-two">
+                        
+                        <section class="container">
+                        <% cache(cache_key_for_each_comment_tree(@listing, @comments_root)) do %>
+                        <%= render template: 'comments/index' %> <br>
+                        <% end %> <!-- cache end -->
+                        </section>
+                        
+                    </div>
+                    
+                </div>
+                <hr>
             </div>
         </div>
     </div>
-    <!-- /.container -->
-
-    <div class="container">
-        <hr>
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; GadgetBite</p>
-                </div>
-            </div>
-        </footer>
     </div>
+    </div>
+</div>
 
 </body>
-<% end %> <!-- cache -->
+
 
 </html>

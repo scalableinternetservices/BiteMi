@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
-<div >
-<h1>Editing Listing</h1>
+<br> <br>
+<h2>Editing Listing</h2>
 
 	<%= render 'show_photos' %>
 	<td><%= link_to 'add pictures', new_product_photo_path(:listing => @listing.id), :class => 'btn btn-primary' %></td><br>
@@ -9,6 +9,6 @@
 
 <%= link_to 'Show', @listing, :class => 'btn' %> |
 <%= link_to 'Back', listings_path, :class => 'btn'%>
-</div>
+
 </div>
 </div>

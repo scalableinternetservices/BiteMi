@@ -1,17 +1,16 @@
 <% cache do %>
 
+<br>
+<br>
 <div class="container">
-<div class="row">
-<div >
+	<div class="row">
+	<h2>New Listing</h2>
 
-<h1>New Listing</h1>
+	<%= render 'form' %> 
+	<br>
+	<%= link_to 'Back', listings_path, class:'btn btn-success' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', listings_path, :class => 'btn' %>
-
-</div>
-</div>
+	</div>
 </div>
 
 <% end %>

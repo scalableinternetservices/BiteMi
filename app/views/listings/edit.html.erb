@@ -4,6 +4,7 @@
 <h2>Editing Listing</h2>
 
 	<%= render 'show_photos' %>
+	<br>
 	<td><%= link_to 'add pictures', new_product_photo_path(:listing => @listing.id), :class => 'btn btn-primary' %></td><br>
 	<br>
 	<%= render 'form' %>

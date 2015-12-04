@@ -16,8 +16,8 @@
     <%= f.text_field :description %>
     <%= f.hidden_field :listing_id, :value => @listing.id %>
     <div>
-      <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default_avator.png';" 
-      style="width:128px;height:128px;">
+      <img id="img_prev" src="#" onError="this.onerror=null;this.src='/images/default-thumb.png';" 
+      style="width:512px;height:400px;">
       <%= f.file_field :picture, :onchange => "readURL(this);" %>
     </div>
 

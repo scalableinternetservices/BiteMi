@@ -22,7 +22,7 @@
 
 <body>
 
-<br><br>
+<br><br><br>
 
 <!-- <div class="wrapper"> -->
     <div class="container">
@@ -56,7 +56,7 @@
                 <p class="description">
                   <% if listing.user_id != current_user.id %>
                     <%= link_to 'Order', new_order_path(:user => User.find(listing.user_id).id, :listing => listing.id) %>
-                  <%else%>
+                  <% else %>
                     <%= link_to 'Edit', edit_listing_path(listing) %>
                   <% end %>
                 </p>
